@@ -10,6 +10,7 @@ License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /languages
 Text Domain: flat_preloader
+Domain Path: /languages
 */
 
 defined( 'ABSPATH' ) || die;
