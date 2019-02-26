@@ -1,0 +1,24 @@
+.wp-preloading-wrapper {
+	background: white;
+	margin: 30px 30px 0 0;
+	padding: 30px;
+}
+
+.wp-preloading-section {
+	padding: 15px 0;
+}
+
+.preloader-item {
+	display: inline-block;
+	text-align: center;
+	margin: 15px 15px;
+}
+
+.preloader-item img {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input[type="submit"] {
+	margin-top: 30px;
+}
