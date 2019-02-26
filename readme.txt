@@ -27,6 +27,9 @@ You can select where the loading page will be shown, such as home page or all pa
 
 == Changelog ==
 
+= 1.1.1 =
+* Fix: remove duplicate slash from asset URLs
+
 = 1.1 =
 * Add Modern Flat icons
 
