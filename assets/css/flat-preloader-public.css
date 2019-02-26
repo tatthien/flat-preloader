@@ -17,6 +17,6 @@
   margin-left: -32px;
 }
 
-html, body {
+.flat_preloader {
   overflow: hidden;
 }
