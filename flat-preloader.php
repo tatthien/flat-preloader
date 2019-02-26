@@ -28,7 +28,7 @@ require_once dirname( __FILE__ ) . '/flat-preloader-settings.php';
  * @return void
  */
 function flat_preloader_add_admin_scripts() {
-	wp_enqueue_style( 'flat-preloader-admin', FLAT_PRELOADER_PLUGIN_URL . '/assets/css/flat-preloader.css', array(), FLAT_PRELOADER_VERSION, 'all' );
+	wp_enqueue_style( 'flat-preloader-admin', FLAT_PRELOADER_PLUGIN_URL . 'assets/css/flat-preloader.css', array(), FLAT_PRELOADER_VERSION, 'all' );
 }
 
 add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
@@ -41,8 +41,8 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
  * @return void
  */
 function flat_preloader_add_public_scripts() {
-	wp_enqueue_style( 'flat-preloader', FLAT_PRELOADER_PLUGIN_URL . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
-	wp_enqueue_script( 'flat-preloader-js', FLAT_PRELOADER_PLUGIN_URL . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
+	wp_enqueue_style( 'flat-preloader', FLAT_PRELOADER_PLUGIN_URL . 'assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
+	wp_enqueue_script( 'flat-preloader-js', FLAT_PRELOADER_PLUGIN_URL . 'assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
