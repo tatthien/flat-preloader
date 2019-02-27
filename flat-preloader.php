@@ -3,7 +3,7 @@
 Plugin Name: Flat Preloader
 Plugin URI:  http://tatthien.com
 Description: Create preloading page with many various styles
-Version:     1.1.1
+Version:     1.1.2
 Author:      Tat Thien
 Author URI:  http://tatthien.com
 License:     GPL2
