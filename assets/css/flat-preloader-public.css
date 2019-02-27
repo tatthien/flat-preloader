@@ -1,4 +1,4 @@
-#th_preloader {
+#flat-preloader-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   background: white;
 }
 
-#th_preloader img {
+#flat-preloader-overlay img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,6 +17,6 @@
   margin-left: -32px;
 }
 
-.flat_preloader {
+.flat-preloader-active {
   overflow: hidden;
 }

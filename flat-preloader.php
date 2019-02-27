@@ -28,7 +28,7 @@ require_once dirname( __FILE__ ) . '/flat-preloader-settings.php';
  * @return void
  */
 function flat_preloader_add_admin_scripts() {
-	wp_enqueue_style( 'flat-preloader-admin', FLAT_PRELOADER_PLUGIN_URL . 'assets/css/flat-preloader.css', array(), FLAT_PRELOADER_VERSION, 'all' );
+	wp_enqueue_style( 'flat-preloader-admin', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader.css', array(), FLAT_PRELOADER_VERSION, 'all' );
 }
 
 add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
@@ -41,8 +41,8 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
  * @return void
  */
 function flat_preloader_add_public_scripts() {
-	wp_enqueue_style( 'flat-preloader', FLAT_PRELOADER_PLUGIN_URL . 'assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
-	wp_enqueue_script( 'flat-preloader-js', FLAT_PRELOADER_PLUGIN_URL . 'assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
+	wp_enqueue_style( 'flat-preloader', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
+	wp_enqueue_script( 'flat-preloader-js', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
@@ -59,13 +59,36 @@ function flat_preloader_output() {
 	$display = get_option( 'preloader-display' );
 
 	if ( $display == 'home' && ( is_home() || is_front_page() ) ) {
-		echo '<div id="th_preloader"><img src="' . FLAT_PRELOADER_PLUGIN_URL . '/assets/images/' . $style . '"/></div>';
+		echo '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/></div>';
 	} elseif ( $display == 'all' ) {
-		echo '<div id="th_preloader"><img src="' . FLAT_PRELOADER_PLUGIN_URL . '/assets/images/' . $style . '"/></div>';
+		echo '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/></div>';
 	}
 }
 
 add_action( 'wp_head', 'flat_preloader_output', 1000 );
+
+/**
+ * Add custom classes to body
+ *
+ * @since 1.1.2
+ *
+ * @param array $classes The body classes.
+ *
+ * @return array $classes The body classes
+ */
+function flat_preloader_body_classes( $classes ) {
+	$display = get_option( 'preloader-display' );
+
+	if ( $display == 'home' && ( is_home() || is_front_page() ) ) {
+		$classes[] = 'flat-preloader-active';
+	} elseif ( $display == 'all' ) {
+		$classes[] = 'flat-preloader-active';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'flat_preloader_body_classes' );
 
 /**
  * Add plugin action links
@@ -83,6 +106,8 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'flat_preloade
 
 /**
  * Load plugin text domain
+ *
+ * @since 1.1
  */
 function flat_preloader_load_text_domain() {
 	load_plugin_textdomain( 'flat_preloader', false, basename( dirname( __FILE__ ) ) . '/languages' );
