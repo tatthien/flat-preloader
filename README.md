@@ -15,8 +15,8 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Installation
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Use the Settings -> Flat Preloader screen to configure the plugin.
+2. Activate the plugin through the **Plugins** screen in WordPress.
+3. Use the **Settings -> Flat Preloader** screen to configure the plugin.
 4. Choose your style and enjoy.
 
 ### Changelog
