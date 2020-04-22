@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Flat Preloader
-Plugin URI:  http://tatthien.com
+Plugin URI:  https://wordpress.org/plugins/flat-preloader/
 Description: Create preloading page with many various styles
 Version:     1.1.2
-Author:      Tat Thien
-Author URI:  http://tatthien.com
+Author:      Thien Nguyen
+Author URI:  https://thien.dev
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flat_preloader
