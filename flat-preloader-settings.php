@@ -49,9 +49,8 @@ function flat_preloader_settings_page() {
 	$display = get_option( 'preloader-display' );
 
 	?>
+    <h1 style="margin: 40px;"><?php esc_html_e( 'Flat Preloader Settings', 'flat_preloader' ); ?></h1>
     <div class="wp-preloading-wrapper">
-        <h1><?php esc_html_e( 'Flat Preloader Settings', 'flat_preloader' ); ?></h1>
-
         <form method="post">
 			<?php foreach ( $preloader_img as $preloader ) { ?>
                 <div class="wp-preloading-section">
@@ -68,9 +67,9 @@ function flat_preloader_settings_page() {
 		                    ?>
                             <li class="preloader-item">
                                 <label for="<?php echo $icon_id; ?>">
+                                    <input id="<?php echo $icon_id; ?>" type="radio" name="preloader-style" value="<?php echo $icon_value; ?>" <?php checked( $style, $icon_value ); ?>>
                                     <img src="<?php echo $icon_url; ?>" alt="<?php echo $icon_id ?>"/>
                                 </label>
-                                <input id="<?php echo $icon_id; ?>" type="radio" name="preloader-style" value="<?php echo $icon_value; ?>" <?php checked( $style, $icon_value ); ?>>
                             </li>
 						<?php } ?>
                     </ul>
