@@ -1,21 +1,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flat Preloader\n"
-"POT-Creation-Date: 2019-02-26 12:23+0700\n"
-"PO-Revision-Date: 2019-02-26 12:33+0700\n"
+"POT-Creation-Date: 2020-04-23 09:14+0700\n"
+"PO-Revision-Date: 2020-04-23 09:16+0700\n"
 "Last-Translator: \n"
 "Language-Team: tatthien.contact@gmail.com\n"
 "Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: flat-preloader-settings.php:11
+#: flat-preloader-settings.php:11 flat-preloader-settings.php:56
 msgid "Flat Preloader Settings"
 msgstr "Cài đặt Flat Preloader"
 
@@ -23,26 +23,45 @@ msgstr "Cài đặt Flat Preloader"
 msgid "Flat Preloader"
 msgstr ""
 
-#: flat-preloader-settings.php:53
-msgid "Choose your style"
-msgstr ""
-
-#: flat-preloader-settings.php:81
+#: flat-preloader-settings.php:84
 msgid "More settings"
 msgstr "Cài đặt khác"
 
-#: flat-preloader-settings.php:82
+#: flat-preloader-settings.php:86
 msgid "Preloader will be appeared on"
 msgstr "Icon loading sẽ hiển thị trên"
 
-#: flat-preloader-settings.php:84
+#: flat-preloader-settings.php:88
 msgid "All pages"
 msgstr "Tất cả các trang"
 
-#: flat-preloader-settings.php:85
-msgid "Home"
-msgstr "Trang chủ"
+#: flat-preloader-settings.php:89
+msgid "Only homepage"
+msgstr "Chỉ trang chủ"
 
-#: flat-preloader.php:78
+#: flat-preloader-settings.php:95
+msgid "Text under loading icon"
+msgstr "Đoạn text dưới icon"
+
+#: flat-preloader-settings.php:101
+msgid "E.g: Loading..."
+msgstr "Ví dụ: Loading"
+
+#: flat-preloader-settings.php:105
+msgid "Delay time (ms)"
+msgstr "Thời gian trì hoãn (ms)"
+
+#: flat-preloader-settings.php:113
+msgid ""
+"When your site is fully loaded, the preloader will fade out after the delay "
+"time. "
+msgstr ""
+"Sau khi trang web của bạn đã được tải đầy đủ, icon loading sẽ ẩn sau khoản "
+"thời gian trì hoãn trên"
+
+#: flat-preloader.php:109
 msgid "Settings"
 msgstr "Cài đặt"
+
+#~ msgid "Home"
+#~ msgstr "Trang chủ"

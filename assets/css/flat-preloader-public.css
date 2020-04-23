@@ -7,14 +7,20 @@
   height: 100%;
   z-index: 999999999;
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #flat-preloader-overlay img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -32px;
-  margin-left: -32px;
+  width: 40px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#flat-preloader-overlay small {
+  display: block;
 }
 
 .flat-preloader-active {

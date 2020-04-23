@@ -25,6 +25,10 @@ function flat_preloader_settings_menu() {
 			if ( isset( $_REQUEST['preloader-display'] ) ) {
 				update_option( 'preloader-display', $_REQUEST['preloader-display'] );
 			}
+
+			if ( isset( $_POST['preloader'] ) ) {
+			    update_option( '_flat_preloader', $_POST['preloader'] );
+            }
 		}
 	}
 }
@@ -77,12 +81,37 @@ function flat_preloader_settings_page() {
 			<?php } ?>
 
             <div class="wp-preloading-section">
-                <h2><?php esc_html_e( 'More settings', 'flat_preloader' ); ?></h2>
-                <label for="preloader-display"><?php esc_html_e( 'Preloader will be appeared on', 'flat_preloader' ); ?></label>
-                <select name="preloader-display" id="preloader-display">
-                    <option value="all" <?php selected( $display, 'all' ); ?>><?php esc_html_e( 'All pages', 'flat_preloader' ); ?></option>
-                    <option value="home" <?php selected( $display, 'home' ); ?>><?php esc_html_e( 'Home', 'flat_preloader' ); ?></option>
-                </select>
+                <h2 style="margin-bottom: 1rem;"><?php esc_html_e( 'More settings', 'flat_preloader' ); ?></h2>
+                <div class="form-group">
+                    <label for="preloader-display"><?php esc_html_e( 'Preloader will be appeared on', 'flat_preloader' ); ?></label>
+                    <select name="preloader-display" id="preloader-display">
+                        <option value="all" <?php selected( $display, 'all' ); ?>><?php esc_html_e( 'All pages', 'flat_preloader' ); ?></option>
+                        <option value="home" <?php selected( $display, 'home' ); ?>><?php esc_html_e( 'Only homepage', 'flat_preloader' ); ?></option>
+                    </select>
+                </div>
+
+                <?php $settings = get_option( '_flat_preloader' ); ?>
+                <div class="form-group">
+                    <label for="text_under_icon"><?php esc_html_e( 'Text under loading icon', 'flat_preloader' ); ?></label>
+                    <input
+                        type="text"
+                        id="text_under_icon"
+                        name="preloader[text_under_icon]"
+                        class="regular-text"
+                        placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat_preloader' ); ?>"
+                        value="<?php echo $settings['text_under_icon'] ? $settings['text_under_icon'] : ''; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="delay_time"><?php esc_html_e( 'Delay time (ms)', 'flat_preloader' ); ?></label>
+                    <input
+                        type="number"
+                        id="delay_time"
+                        name="preloader[delay_time]"
+                        class="regular-text"
+                        placeholder="Default is 1 second"
+                        value="<?php echo $settings['text_under_icon'] ? $settings['delay_time'] : ''; ?>">
+                    <p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat_preloader' ); ?></p>
+                </div>
             </div>
 
             <input type="submit" class="button-primary" name="save-option" value="Save Changes">

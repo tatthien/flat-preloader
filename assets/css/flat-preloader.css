@@ -7,6 +7,15 @@
   border: 1px solid #e2e8f0;
 }
 
+.wp-preloading-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.wp-preloading-wrapper .form-group {
+  margin-bottom: 1rem;
+}
+
 .wp-preloading-section {
   margin-bottom: 3rem;
 }

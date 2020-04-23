@@ -1,6 +1,16 @@
 (function ($) {
+  const $overlay = $('#flat-preloader-overlay');
+
   $(window).load(function () {
-    $('#flat-preloader-overlay').remove();
-    $('html, body').removeClass('flat-preloader-active')
-  })
+    let delayTime = flatPreloader.delayTime
+    $overlay.delay(delayTime).fadeOut();
+
+    setTimeout(function() {
+      $('html, body').removeClass('flat-preloader-active')
+    }, delayTime);
+
+    setTimeout(function() {
+      $overlay.remove()
+    }, 4000);
+  });
 })(jQuery)

@@ -41,8 +41,12 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
  * @return void
  */
 function flat_preloader_add_public_scripts() {
+    $settings = get_option( '_flat_preloader' );
 	wp_enqueue_style( 'flat-preloader', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
 	wp_enqueue_script( 'flat-preloader-js', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
+    wp_localize_script('flat-preloader-js', 'flatPreloader', [
+        'delayTime' => $settings['delay_time'] ? $settings['delay_time'] : 1000
+    ]);
 }
 
 add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
@@ -57,11 +61,15 @@ add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
 function flat_preloader_output() {
 	$style   = get_option( 'preloader-style' );
 	$display = get_option( 'preloader-display' );
+	$settings = get_option( '_flat_preloader' );
+	$text = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
 
-	if ( $display == 'home' && ( is_home() || is_front_page() ) ) {
-		echo '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/></div>';
-	} elseif ( $display == 'all' ) {
-		echo '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/></div>';
+	$content = '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/><small>'. $text .'</small></div>';
+
+	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
+		echo $content;
+	} elseif ( $display === 'all' ) {
+		echo $content;
 	}
 }
 
