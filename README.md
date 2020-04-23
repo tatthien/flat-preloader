@@ -21,19 +21,25 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.2
+
+- Update: Re-arrange the settings page.
+- Feat: Add text under loading icon.
+- Feat: Add delay time. The loading icon will fade out after the delay time.
+
 1.1.2
 
 - Fix: cannot scroll the site when it was rendered in iframe.
 
 1.1.1
 
-- Fix: remove duplicate slash from asset URLs
+- Fix: remove duplicate slash from asset URLs.
 
 1.1
 
-- Add Modern Flat icons
+- Add Modern Flat icons.
 
 1.0.1
 
-- Add more icons
-- Add options to select where the preloading page will be appeared
+- Add more icons.
+- Add options to select where the preloading page will be appeared.

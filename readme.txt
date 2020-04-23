@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: tatthiennguyen
-Donate link: http://tatthien.com
-Tags: wordpress, preloader, flat, gif, icon
+Donate link: https://thien.dev
+Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 5.0
 Tested up to: 5.4
 Stable tag: 5.4
@@ -27,8 +27,12 @@ You can select where the loading page will be shown, such as home page or all pa
 
 == Changelog ==
 
-= 1.1.2 =
+= 1.2 =
+* Update: Re-arrange the settings page.
+* Feat: Add text under loading icon.
+* Feat: Add delay time. The loading icon will fade out after the delay time.
 
+= 1.1.2 =
 * Fix: cannot scroll the site when it was rendered in iframe.
 
 = 1.1.1 =

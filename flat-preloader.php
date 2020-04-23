@@ -3,7 +3,7 @@
 Plugin Name: Flat Preloader
 Plugin URI:  https://wordpress.org/plugins/flat-preloader/
 Description: Create preloading page with many various styles
-Version:     1.1.2
+Version:     1.2
 Author:      Thien Nguyen
 Author URI:  https://thien.dev
 License:     GPL2
