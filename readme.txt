@@ -23,7 +23,8 @@ You can select where the loading page will be shown, such as home page or all pa
 == Screenshots ==
 
 1. Settings
-2. Demo
+2. Demo 1
+3. Demo 2
 
 == Changelog ==
 
