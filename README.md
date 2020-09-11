@@ -21,6 +21,12 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.3
+
+- Feat: Add more 60+ animated icons.
+- Update: Get rid of jQuery. The script that shows the loading icon on the front-end is pure JavaScript.
+- Update: Styles of hover, active animated incons in the settings page.
+
 1.2
 
 - Update: Re-arrange the settings page.
