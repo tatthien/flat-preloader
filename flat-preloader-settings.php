@@ -133,7 +133,7 @@ function flat_preloader_settings_page() {
             <input type="submit" class="button-primary" name="save-option" value="Save Changes">
 
             <div style="margin: 2rem 0;">
-                <p>Animated icons by: <a href="https://icons8.com">icon8</a>, <a href="https://pixelbuddha.net/">PixelBuddha</a></p>
+                <p><?php esc_html_e( 'Animated icons by', 'flat_preloader' ); ?>: <a href="https://icons8.com">icon8</a>, <a href="https://pixelbuddha.net/">PixelBuddha</a></p>
             </div>
         </form>
     </div>
