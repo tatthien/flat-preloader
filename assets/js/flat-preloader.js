@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', async function () {
   await sleep(delayTime)
   document.body.classList.remove('flat-preloader-active')
   $overlay.classList.add('hide')
-
-  await sleep(4000)
+  await sleep(300)
   $overlay.remove()
 })
