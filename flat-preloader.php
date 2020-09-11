@@ -59,10 +59,14 @@ add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
  * @return string $output
  */
 function flat_preloader_output() {
-	$style   = get_option( 'preloader-style' );
+	$style = get_option( 'preloader-style' );
 	$display = get_option( 'preloader-display' );
 	$settings = get_option( '_flat_preloader' );
 	$text = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
+
+	if (!$style) {
+		$style = 'flat/flat_8.gif';
+	}
 
 	$content = '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/><small>'. $text .'</small></div>';
 
