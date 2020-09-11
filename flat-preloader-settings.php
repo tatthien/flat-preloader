@@ -35,6 +35,22 @@ function flat_preloader_settings_menu() {
 
 function flat_preloader_settings_page() {
 	$preloader_img = apply_filters( 'flat_preloader_styles', array(
+        array(
+            'key_name'   => 'color-style',
+			'title_name' => 'Color style animated icons',
+        ),
+        array(
+            'key_name'   => 'ios-glyph',
+			'title_name' => 'iOS Glyph style animated icons',
+        ),
+        array(
+            'key_name'   => 'windows-10',
+			'title_name' => 'Windows 10 style animated icons',
+        ),
+        array(
+            'key_name'   => 'office-style',
+			'title_name' => 'Office style style animated icons',
+        ),
 		array(
 			'key_name'   => 'modern-flat',
 			'title_name' => 'Modern Flat',
@@ -46,7 +62,7 @@ function flat_preloader_settings_page() {
 		array(
 			'key_name'   => 'emoji',
 			'title_name' => 'Emoji',
-		)
+        ),
     ) );
 
 	$style   = get_option( 'preloader-style' );
@@ -64,9 +80,9 @@ function flat_preloader_settings_page() {
 	                    <?php $icon_dir_url = FLAT_PRELOADER_PLUGIN_URL . '/assets/images/' . $preloader['key_name']; ?>
 	                    <?php foreach ( glob( $icon_dir_path . '/*.gif' ) as $file ) { ?>
 		                    <?php
-		                    $icon_name  = str_replace( $icon_dir_path . '/', '', $file );
-		                    $icon_id    = sanitize_title( $icon_name );
-		                    $icon_url   = $icon_dir_url . '/' . $icon_name;
+		                    $icon_name = str_replace( $icon_dir_path . '/', '', $file );
+		                    $icon_id  = sanitize_title( $preloader['key_name'] . '_' . $icon_name );
+		                    $icon_url = $icon_dir_url . '/' . $icon_name;
 		                    $icon_value = $preloader['key_name'] . '/' . $icon_name;
 		                    ?>
                             <li class="preloader-item">
@@ -115,6 +131,10 @@ function flat_preloader_settings_page() {
             </div>
 
             <input type="submit" class="button-primary" name="save-option" value="Save Changes">
+
+            <div style="margin: 2rem 0;">
+                <p>Animated icons by: <a href="https://icons8.com">icon8</a>, <a href="https://pixelbuddha.net/">PixelBuddha</a></p>
+            </div>
         </form>
     </div>
 	<?php
