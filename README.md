@@ -21,6 +21,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.3.1
+
+- Fix: The overlay does not remove after faded out.
+
 1.3
 
 - Feat: Add more 60+ animated icons.
