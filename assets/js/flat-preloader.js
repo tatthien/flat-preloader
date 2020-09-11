@@ -1,16 +1,14 @@
-(function ($) {
-  const $overlay = $('#flat-preloader-overlay');
+const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 
-  $(window).load(function () {
-    let delayTime = flatPreloader.delayTime
-    $overlay.delay(delayTime).fadeOut();
+const $overlay = document.getElementById('flat-preloader-overlay');
 
-    setTimeout(function() {
-      $('html, body').removeClass('flat-preloader-active')
-    }, delayTime);
+window.addEventListener('DOMContentLoaded', async function () {
+  const delayTime = flatPreloader.delayTime
 
-    setTimeout(function() {
-      $overlay.remove()
-    }, 4000);
-  });
-})(jQuery)
+  await sleep(delayTime)
+  document.body.classList.remove('flat-preloader-active')
+  $overlay.classList.add('hide')
+
+  await sleep(4000)
+  $overlay.remove()
+})

@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: opacity .3s ease-in;
+  opacity: 1;
 }
 
 #flat-preloader-overlay img {
@@ -21,6 +23,10 @@
 
 #flat-preloader-overlay small {
   display: block;
+}
+
+#flat-preloader-overlay.hide {
+  opacity: 0;
 }
 
 .flat-preloader-active {
