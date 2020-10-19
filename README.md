@@ -21,6 +21,11 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.4
+
+- Update: Remove text domain header.
+- Update: Change text domain from 'flat_preloader' to 'flat-preloader'
+
 1.3.1
 
 - Fix: The overlay does not remove after faded out.
