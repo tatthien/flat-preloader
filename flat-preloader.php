@@ -113,14 +113,3 @@ function flat_preloader_plugin_action_links( $links ) {
 }
 
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'flat_preloader_plugin_action_links', 100 );
-
-/**
- * Load plugin text domain
- *
- * @since 1.1
- */
-function flat_preloader_load_text_domain() {
-	load_plugin_textdomain( 'flat_preloader', false, basename( dirname( __FILE__ ) ) . '/languages' );
-}
-
-add_action( 'init', 'flat_preloader_load_text_domain' );
