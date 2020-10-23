@@ -21,6 +21,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.4.1
+
+- Fix: Change HTML event from `DOMContentLoaded` to `load`. I encounter an issue when some websites use optmization plugins to minify JavaScript and load JavaScript with defer. If the script is loaded with defer, it will execute before `DOMContenLoader`. Hence, the loading screen will be stuck and will not be hidden.
+
 1.4
 
 - Update: Remove text domain header.
