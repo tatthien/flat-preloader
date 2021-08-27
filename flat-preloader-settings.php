@@ -113,6 +113,17 @@ function flat_preloader_settings_page() {
                 </div>
 
                 <?php $settings = get_option( '_flat_preloader' ); ?>
+                <div class="form-group" style="max-width: 500px;">
+                    <label for="custom_image_url"><?php esc_html_e( 'Custom animated icon URL', 'flat-preloader' ); ?></label>
+                    <input
+                        type="url"
+                        id="custom_image_url"
+                        name="preloader[custom_image_url]"
+                        class="regular-text"
+                        placeholder="https://"
+                        value="<?php echo isset($settings['custom_image_url']) ? $settings['custom_image_url'] : ''; ?>">
+                    <p class="description"><?php esc_html_e( 'If you don\'t like the icons above, you can add your own by entering the URL here. This value will override the selected icon above.', 'flat-preloader' ); ?></p>
+                </div>
                 <div class="form-group">
                     <label for="text_under_icon"><?php esc_html_e( 'Text under loading icon', 'flat-preloader' ); ?></label>
                     <input

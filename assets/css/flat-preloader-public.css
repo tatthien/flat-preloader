@@ -16,9 +16,12 @@
 }
 
 #flat-preloader-overlay img {
+  margin-bottom: 10px;
+}
+
+.fpo-default img {
   width: 40px;
   height: auto;
-  margin-bottom: 10px;
 }
 
 #flat-preloader-overlay small {
