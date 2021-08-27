@@ -1,8 +1,12 @@
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 
-const $overlay = document.getElementById('flat-preloader-overlay');
+const $overlay = document.getElementById('flat-preloader-overlay')
 
 window.addEventListener('DOMContentLoaded', async function () {
+  if (!$overlay) {
+    return
+  }
+
   const delayTime = flatPreloader.delayTime
 
   await sleep(delayTime)
