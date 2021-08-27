@@ -28,6 +28,12 @@ You can select where the loading page will be shown, such as home page or all pa
 
 == Changelog ==
 
+= 1.5 =
+
+* Feat: You can add custom icon url if you don't like the avaible icons.
+* Feat: Able to add icon alt text. This will help improve SEO score of your page.
+* Improve: Show total icons count in each icon section.
+
 = 1.4.1 =
 
 * Fix: Change HTML event from DOMContentLoaded to load. I encounter an issue when some websites use optmization plugins to minify JavaScript and load JavaScript with defer. If the script is loaded with defer, it will execute before DOMContenLoader. Hence, the loading screen will be stuck and will not be hidden.
