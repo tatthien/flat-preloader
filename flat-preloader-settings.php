@@ -74,11 +74,17 @@ function flat_preloader_settings_page() {
         <form method="post">
 			<?php foreach ( $preloader_img as $preloader ) { ?>
                 <div class="wp-preloading-section">
-                    <h2><?php echo $preloader['title_name']; ?></h2>
+                	<?php 
+	                	$icon_dir_path = FLAT_PRELOADER_PLUGIN_PATH . '/assets/images/' . $preloader['key_name'];
+		                $icon_dir_url = FLAT_PRELOADER_PLUGIN_URL . '/assets/images/' . $preloader['key_name'];
+	                	$files = glob( $icon_dir_path . '/*.gif' );
+	                	$total_files = count($files);
+	                	$title_name = $preloader['title_name'];
+                	?>
+                    
+                    <h2><?php echo "$title_name ($total_files)"; ?></h2>
                     <ul>
-	                    <?php $icon_dir_path = FLAT_PRELOADER_PLUGIN_PATH . '/assets/images/' . $preloader['key_name']; ?>
-	                    <?php $icon_dir_url = FLAT_PRELOADER_PLUGIN_URL . '/assets/images/' . $preloader['key_name']; ?>
-	                    <?php foreach ( glob( $icon_dir_path . '/*.gif' ) as $file ) { ?>
+	                    <?php foreach ( $files as $file ) { ?>
 		                    <?php
 		                    $icon_name = str_replace( $icon_dir_path . '/', '', $file );
 		                    $icon_id  = sanitize_title( $preloader['key_name'] . '_' . $icon_name );
