@@ -121,7 +121,7 @@ function flat_preloader_settings_page() {
                         name="preloader[text_under_icon]"
                         class="regular-text"
                         placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat-preloader' ); ?>"
-                        value="<?php echo $settings['text_under_icon'] ? $settings['text_under_icon'] : ''; ?>">
+                        value="<?php echo isset($settings['text_under_icon']) ? $settings['text_under_icon'] : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="delay_time"><?php esc_html_e( 'Delay time (ms)', 'flat-preloader' ); ?></label>
@@ -131,7 +131,7 @@ function flat_preloader_settings_page() {
                         name="preloader[delay_time]"
                         class="regular-text"
                         placeholder="Default is 1 second"
-                        value="<?php echo $settings['text_under_icon'] ? $settings['delay_time'] : ''; ?>">
+                        value="<?php echo isset($settings['delay_time']) ? $settings['delay_time'] : ''; ?>">
                     <p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
                 </div>
                 <div class="form-group">
