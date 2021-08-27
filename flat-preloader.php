@@ -61,12 +61,13 @@ function flat_preloader_output() {
 	$display = get_option( 'preloader-display' );
 	$settings = get_option( '_flat_preloader' );
 	$text = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
+    $alt = $settings['alt'] ? $settings['alt'] : '';
 
 	if (!$style) {
 		$style = 'flat/flat_8.gif';
 	}
 
-	$content = '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '"/><small>'. $text .'</small></div>';
+	$content = '<div id="flat-preloader-overlay"><img src="' . untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style . '" alt="' . $alt . '"/><small>'. $text .'</small></div>';
 
 	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
 		echo $content;

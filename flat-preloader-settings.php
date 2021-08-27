@@ -128,6 +128,20 @@ function flat_preloader_settings_page() {
                         value="<?php echo $settings['text_under_icon'] ? $settings['delay_time'] : ''; ?>">
                     <p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
                 </div>
+                <div class="form-group">
+                    <label for="alt"><?php esc_html_e( 'Alt text', 'flat-preloader' ); ?></label>
+                    <input
+                        type="text"
+                        id="alt"
+                        name="preloader[alt]"
+                        class="regular-text"
+                        placeholder=""
+                        value="<?php echo isset($settings['alt']) ? $settings['alt'] : ''; ?>">
+                    <p class="description">
+                    	<?php esc_html_e( 'Add alt text for icon to improve SEO score.', 'flat-preloader' ); ?>
+                    	<?php printf(__('<a href="%s" target="_blank">Learn more</a>', 'flat-preloader'), 'https://moz.com/learn/seo/alt-text'); ?>
+                    </p>
+                </div>
             </div>
 
             <input type="submit" class="button-primary" name="save-option" value="Save Changes">
