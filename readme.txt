@@ -28,6 +28,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 == Changelog ==
 
+= 1.5.1=
+
+* Fix: Missing verify nonce which allows CSRF attack.
+
 = 1.5 =
 
 * Feat: You can add custom icon url if you don't like the avaible icons.
