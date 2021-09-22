@@ -155,7 +155,7 @@ function flat_preloader_settings_page()
             <div style="margin: 4rem 0 1rem 0;">
                 <p><?php esc_html_e('Animated icons by', 'flat-preloader'); ?>: <a href="https://icons8.com">icon8</a>, <a href="https://pixelbuddha.net/">PixelBuddha</a></p>
             </div>
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="tatthien" data-color="#FF813F" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000" data-font-color="#fff" data-coffee-color="#fd0" data-font-color="#fff"></script>
+            <a href="https://www.buymeacoffee.com/tatthien" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=tatthien&button_colour=FF5F5F&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
         </form>
     </div>
 <?php

@@ -28,6 +28,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 == Changelog ==
 
+= 1.5.2=
+
+* Chore: Update button "Buy me a coffee"
+
 = 1.5.1=
 
 * Fix: Missing verify nonce which allows CSRF attack.
