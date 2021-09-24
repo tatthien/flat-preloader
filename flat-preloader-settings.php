@@ -29,15 +29,23 @@ function flat_preloader_settings_menu()
             }
 
             if (isset($_REQUEST['preloader-style'])) {
-                update_option('preloader-style', $_REQUEST['preloader-style']);
+                update_option('preloader-style', sanitize_text_field($_REQUEST['preloader-style']));
             }
 
             if (isset($_REQUEST['preloader-display'])) {
-                update_option('preloader-display', $_REQUEST['preloader-display']);
+                update_option('preloader-display', sanitize_text_field($_REQUEST['preloader-display']));
             }
 
             if (isset($_POST['preloader'])) {
-                update_option('_flat_preloader', $_POST['preloader']);
+                $sanitized_opts = [];
+                foreach($_POST['preloader'] as $key => $value) {
+                    if ($key === 'custom_image_url') {
+                        $sanitized_opts[$key] = esc_url_raw($value);
+                        continue;
+                    }
+                    $sanitized_opts[$key] = sanitize_text_field($value);
+                }
+                update_option('_flat_preloader', $sanitized_opts);
             }
         }
     }
@@ -93,7 +101,7 @@ function flat_preloader_settings_page()
                     $title_name = $preloader['title_name'];
                     ?>
 
-                    <h2><?php echo "$title_name ($total_files)"; ?></h2>
+                    <h2><?php echo esc_html("$title_name ($total_files)"); ?></h2>
                     <ul>
                         <?php foreach ($files as $file) { ?>
                             <?php
@@ -103,9 +111,9 @@ function flat_preloader_settings_page()
                             $icon_value = $preloader['key_name'] . '/' . $icon_name;
                             ?>
                             <li class="preloader-item">
-                                <label for="<?php echo $icon_id; ?>">
-                                    <input id="<?php echo $icon_id; ?>" type="radio" name="preloader-style" value="<?php echo $icon_value; ?>" <?php checked($style, $icon_value); ?>>
-                                    <img src="<?php echo $icon_url; ?>" alt="<?php echo $icon_id ?>" />
+                                <label for="<?php echo esc_attr($icon_id); ?>">
+                                    <input id="<?php echo esc_attr($icon_id); ?>" type="radio" name="preloader-style" value="<?php echo esc_attr($icon_value); ?>" <?php checked($style, $icon_value); ?>>
+                                    <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($icon_id) ?>" />
                                 </label>
                             </li>
                         <?php } ?>
@@ -131,7 +139,7 @@ function flat_preloader_settings_page()
                 </div>
                 <div class="form-group">
                     <label for="text_under_icon"><?php esc_html_e('Text under loading icon', 'flat-preloader'); ?></label>
-                    <input type="text" id="text_under_icon" name="preloader[text_under_icon]" class="regular-text" placeholder="<?php esc_html_e('E.g: Loading...', 'flat-preloader'); ?>" value="<?php echo isset($settings['text_under_icon']) ? $settings['text_under_icon'] : ''; ?>">
+                    <input type="text" id="text_under_icon" name="preloader[text_under_icon]" class="regular-text" placeholder="<?php esc_html_e('E.g: Loading...', 'flat-preloader'); ?>" value="<?php echo isset($settings['text_under_icon']) ? esc_attr($settings['text_under_icon']) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label for="delay_time"><?php esc_html_e('Delay time (ms)', 'flat-preloader'); ?></label>
@@ -140,7 +148,7 @@ function flat_preloader_settings_page()
                 </div>
                 <div class="form-group">
                     <label for="alt"><?php esc_html_e('Alt text', 'flat-preloader'); ?></label>
-                    <input type="text" id="alt" name="preloader[alt]" class="regular-text" placeholder="" value="<?php echo isset($settings['alt']) ? $settings['alt'] : ''; ?>">
+                    <input type="text" id="alt" name="preloader[alt]" class="regular-text" placeholder="" value="<?php echo isset($settings['alt']) ? esc_attr($settings['alt']) : ''; ?>">
                     <p class="description">
                         <?php esc_html_e('Add alt text for icon to improve SEO score.', 'flat-preloader'); ?>
                         <?php printf(__('<a href="%s" target="_blank">Learn more</a>', 'flat-preloader'), 'https://moz.com/learn/seo/alt-text'); ?>

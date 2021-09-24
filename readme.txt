@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/tatthien
 Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 4.6
 Tested up to: 5.8
-Stable tag: 5.8
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,11 +28,14 @@ You can select where the loading page will be shown, such as home page or all pa
 
 == Changelog ==
 
-= 1.5.2=
+= 1.5.3 =
+* Improve: Securing the input & output of settings*
+
+= 1.5.2 =
 
 * Chore: Update button "Buy me a coffee"
 
-= 1.5.1=
+= 1.5.1 =
 
 * Fix: Missing verify nonce which allows CSRF attack.
 
