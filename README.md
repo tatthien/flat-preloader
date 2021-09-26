@@ -21,6 +21,14 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.5.4
+
+- Improve: Securing the input & output of settings
+
+1.5.3
+
+- Improve: Securing the input & output of settings
+
 1.5.2
 
 - Chore: Update button "Buy me a coffee"
