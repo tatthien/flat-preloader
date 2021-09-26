@@ -134,21 +134,51 @@ function flat_preloader_settings_page()
                 <?php $settings = get_option('_flat_preloader'); ?>
                 <div class="form-group" style="max-width: 500px;">
                     <label for="custom_image_url"><?php esc_html_e('Custom animated icon URL', 'flat-preloader'); ?></label>
-                    <input type="url" id="custom_image_url" name="preloader[custom_image_url]" class="regular-text" placeholder="https://" value="<?php echo isset($settings['custom_image_url']) ? $settings['custom_image_url'] : ''; ?>">
+                    <input 
+                        type="url"
+                        id="custom_image_url" 
+                        name="preloader[custom_image_url]" 
+                        class="regular-text"
+                        placeholder="https://" 
+                        value="<?php echo isset($settings['custom_image_url']) ? esc_url($settings['custom_image_url']) : ''; ?>"
+                    >
                     <p class="description"><?php esc_html_e('If you don\'t like the icons above, you can add your own by entering the URL here. This value will override the selected icon above.', 'flat-preloader'); ?></p>
                 </div>
+
                 <div class="form-group">
                     <label for="text_under_icon"><?php esc_html_e('Text under loading icon', 'flat-preloader'); ?></label>
-                    <input type="text" id="text_under_icon" name="preloader[text_under_icon]" class="regular-text" placeholder="<?php esc_html_e('E.g: Loading...', 'flat-preloader'); ?>" value="<?php echo isset($settings['text_under_icon']) ? esc_attr($settings['text_under_icon']) : ''; ?>">
+                    <input 
+                        type="text" 
+                        id="text_under_icon" 
+                        name="preloader[text_under_icon]"
+                        class="regular-text" 
+                        placeholder="<?php esc_html_e('E.g: Loading...', 'flat-preloader'); ?>" 
+                        value="<?php echo isset($settings['text_under_icon']) ? esc_attr($settings['text_under_icon']) : ''; ?>">
                 </div>
+                
                 <div class="form-group">
                     <label for="delay_time"><?php esc_html_e('Delay time (ms)', 'flat-preloader'); ?></label>
-                    <input type="number" id="delay_time" name="preloader[delay_time]" class="regular-text" placeholder="Default is 1 second" value="<?php echo isset($settings['delay_time']) ? $settings['delay_time'] : ''; ?>">
+                    <input 
+                        type="number" 
+                        id="delay_time" 
+                        name="preloader[delay_time]" 
+                        class="regular-text" 
+                        placeholder="Default is 1 second" 
+                        value="<?php echo isset($settings['delay_time']) ? esc_attr($settings['delay_time']) : ''; ?>"
+                    >
                     <p class="description"><?php esc_html_e('When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader'); ?></p>
                 </div>
+                
                 <div class="form-group">
                     <label for="alt"><?php esc_html_e('Alt text', 'flat-preloader'); ?></label>
-                    <input type="text" id="alt" name="preloader[alt]" class="regular-text" placeholder="" value="<?php echo isset($settings['alt']) ? esc_attr($settings['alt']) : ''; ?>">
+                    <input 
+                        type="text" 
+                        id="alt"
+                        name="preloader[alt]" 
+                        class="regular-text" 
+                        placeholder="" 
+                        value="<?php echo isset($settings['alt']) ? esc_attr($settings['alt']) : ''; ?>"
+                    >
                     <p class="description">
                         <?php esc_html_e('Add alt text for icon to improve SEO score.', 'flat-preloader'); ?>
                         <?php printf(__('<a href="%s" target="_blank">Learn more</a>', 'flat-preloader'), 'https://moz.com/learn/seo/alt-text'); ?>
