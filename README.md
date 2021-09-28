@@ -21,6 +21,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.5.5
+
+- Fix: XSS on front-end
+
 1.5.4
 
 - Improve: Securing the input & output of settings
