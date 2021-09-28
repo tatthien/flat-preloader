@@ -72,7 +72,7 @@ function flat_preloader_output() {
 
 	$image_url = $settings['custom_image_url'] ? $settings['custom_image_url'] : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style;
 	$text      = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
-	$alt       = $settings['alt'] ? $settings['alt'] : '';
+	$alt       = $settings['alt'] ? esc_attr( $settings['alt'] ) : '';
 
 	$overlay_class = $settings['custom_image_url'] ? 'fpo-custom' : 'fpo-default';
 
