@@ -7,6 +7,8 @@
 <a href="https://wordpress.org/plugins/flat-preloader/"><img src="https://img.shields.io/wordpress/plugin/v/flat-preloader.svg" alt="Plugin version"/></a>
 <a href="https://wordpress.org/plugins/flat-preloader/"><img src="https://img.shields.io/wordpress/plugin/tested/flat-preloader.svg" alt="WordPress tested version" /></a>
 
+![Alt](https://repobeats.axiom.co/api/embed/2fd6b6b18c2f64c868954e45c6491dba27ccc610.svg "Repobeats analytics image")
+
 ### Description
 
 Flat Preloader helps you create the loading page with many excited gif icons.
