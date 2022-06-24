@@ -3,8 +3,8 @@ Contributors: tatthiennguyen
 Donate link: https://www.buymeacoffee.com/tatthien
 Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 4.6
-Tested up to: 5.8
-Stable tag: 1.5.5
+Tested up to: 6.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,9 @@ You can select where the loading page will be shown, such as home page or all pa
 3. Demo 2
 
 == Changelog ==
+
+= 1.6.0 =
+* Feat: Allow show loading icon on a specific post (any post-type)
 
 = 1.5.5 = 
 * Fix: XSS on front-end

@@ -3,7 +3,7 @@
 Plugin Name: Flat Preloader
 Plugin URI:  https://wordpress.org/plugins/flat-preloader/
 Description: Create preloading page with many various styles
-Version:     1.5.5
+Version:     1.6.0
 Author:      Thien Nguyen
 Author URI:  https://thien.dev
 License:     GPL2
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || die;
 
 define( 'FLAT_PRELOADER_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FLAT_PRELOADER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'FLAT_PRELOADER_VERSION', '1.5.5' );
+define( 'FLAT_PRELOADER_VERSION', '1.6.0' );
 
 require_once dirname( __FILE__ ) . '/flat-preloader-settings.php';
 
