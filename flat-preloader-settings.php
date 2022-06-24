@@ -87,7 +87,7 @@ function flat_preloader_settings_page() {
 
 	$style   = get_option( 'preloader-style' );
 	$display = get_option( 'preloader-display' );
-
+	$settings = get_option( '_flat_preloader' );
 	?>
 	<h1 style="margin: 40px;"><?php esc_html_e( 'Flat Preloader Settings', 'flat-preloader' ); ?></h1>
 	<div class="wp-preloading-wrapper">
@@ -129,10 +129,28 @@ function flat_preloader_settings_page() {
 					<select name="preloader-display" id="preloader-display">
 						<option value="all" <?php selected( $display, 'all' ); ?>><?php esc_html_e( 'All pages', 'flat-preloader' ); ?></option>
 						<option value="home" <?php selected( $display, 'home' ); ?>><?php esc_html_e( 'Only homepage', 'flat-preloader' ); ?></option>
+						<option value="custom" <?php selected( $display, 'custom' ); ?>><?php esc_html_e( 'Custom', 'flat-preloader' ); ?></option>
 					</select>
 				</div>
 
-				<?php $settings = get_option( '_flat_preloader' ); ?>
+				<div class="form-group" style="max-width: 400px;">
+					<label for="post_id"><?php esc_html_e( 'Post ID', 'flat-preloader' ); ?></label>
+					<input 
+						type="number"
+						id="post_id"
+						name="preloader[post_id]"
+						class="regular-text"
+						value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : '' ?>" 
+					>
+					<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. This ID is applied if the option above is "Custom".', 'flat-preloader' ); ?></p>
+					<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
+					<div>
+						<a href="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" target="_blank">
+							<img src="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" style="max-width: 100%; height: auto;" alt="How to get post ID?">
+						</a>
+					</div>
+				</div>
+
 				<div class="form-group" style="max-width: 500px;">
 					<label for="custom_image_url"><?php esc_html_e( 'Custom animated icon URL', 'flat-preloader' ); ?></label>
 					<input 

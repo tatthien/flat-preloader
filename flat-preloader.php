@@ -61,6 +61,8 @@ add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
  * @return string $output
  */
 function flat_preloader_output() {
+	global $post;
+	
 	$style = get_option( 'preloader-style' );
 
 	if ( ! $style ) {
@@ -73,6 +75,7 @@ function flat_preloader_output() {
 	$image_url = $settings['custom_image_url'] ? $settings['custom_image_url'] : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style;
 	$text      = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
 	$alt       = $settings['alt'] ? esc_attr( $settings['alt'] ) : '';
+	$post_id   = $settings['post_id'] ? (int) esc_attr( $settings['post_id'] ) : '';
 
 	$overlay_class = $settings['custom_image_url'] ? 'fpo-custom' : 'fpo-default';
 
@@ -81,6 +84,8 @@ function flat_preloader_output() {
 	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
 		echo $content;
 	} elseif ( $display === 'all' ) {
+		echo $content;
+	} elseif ( $display === 'custom' && $post->ID === $post_id && is_singular() ) {
 		echo $content;
 	}
 }
