@@ -22,6 +22,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.6.0
+
+- Feat: Allow show loading icon on a specific post (any post-type)
+
 1.5.5
 
 - Fix: XSS on front-end
