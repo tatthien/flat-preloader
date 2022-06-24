@@ -4,6 +4,7 @@
 
 <p align="center">💈 Create the loading page for WordPress site with many excited gif icons.</p>
 
+<a href="https://wordpress.org/plugins/flat-preloader/"><img alt="WordPress Plugin Active Installs" src="https://img.shields.io/wordpress/plugin/installs/flat-preloader"></a>
 <a href="https://wordpress.org/plugins/flat-preloader/"><img src="https://img.shields.io/wordpress/plugin/v/flat-preloader.svg" alt="Plugin version"/></a>
 <a href="https://wordpress.org/plugins/flat-preloader/"><img src="https://img.shields.io/wordpress/plugin/tested/flat-preloader.svg" alt="WordPress tested version" /></a>
 
