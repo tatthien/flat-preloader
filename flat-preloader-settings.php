@@ -125,7 +125,7 @@ function flat_preloader_settings_page() {
 			<?php } ?>
 
 			<div class="wp-preloading-section">
-				<h2 style="margin-bottom: 1rem;"><?php esc_html_e( 'More settings', 'flat-preloader' ); ?></h2>
+				<h2 style="margin-bottom: 1rem;"><?php esc_html_e( 'Settings', 'flat-preloader' ); ?></h2>
 				<div class="form-group">
 					<label for="preloader-display"><?php esc_html_e( 'Preloader will be appeared on', 'flat-preloader' ); ?></label>
 					<select name="preloader-display" id="preloader-display">
