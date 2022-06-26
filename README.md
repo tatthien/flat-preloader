@@ -22,6 +22,11 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.7.0
+
+- Feat: Able to collapse/expand the icons list
+- Improve: Settings page UI
+
 1.6.0
 
 - Feat: Allow show loading icon on a specific post (any post-type)
