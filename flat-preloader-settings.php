@@ -102,23 +102,25 @@ function flat_preloader_settings_page() {
 					$title_name    = $preloader['title_name'];
 					?>
 
-					<h2><?php echo esc_html( "$title_name ($total_files)" ); ?></h2>
-					<ul>
-						<?php foreach ( $files as $file ) { ?>
-							<?php
-							$icon_name  = str_replace( $icon_dir_path . '/', '', $file );
-							$icon_id    = sanitize_title( $preloader['key_name'] . '_' . $icon_name );
-							$icon_url   = $icon_dir_url . '/' . $icon_name;
-							$icon_value = $preloader['key_name'] . '/' . $icon_name;
-							?>
-							<li class="preloader-item">
-								<label for="<?php echo esc_attr( $icon_id ); ?>">
-									<input id="<?php echo esc_attr( $icon_id ); ?>" type="radio" name="preloader-style" value="<?php echo esc_attr( $icon_value ); ?>" <?php checked( $style, $icon_value ); ?>>
-									<img src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( $icon_id ); ?>" />
-								</label>
-							</li>
-						<?php } ?>
-					</ul>
+					<details id="<?php echo $preloader['key_name']; ?>" open>
+						<summary><strong style="font-size: 1rem;"><?php echo esc_html( "$title_name ($total_files)" ); ?></strong></summary>
+						<ul>
+							<?php foreach ( $files as $file ) { ?>
+								<?php
+								$icon_name  = str_replace( $icon_dir_path . '/', '', $file );
+								$icon_id    = sanitize_title( $preloader['key_name'] . '_' . $icon_name );
+								$icon_url   = $icon_dir_url . '/' . $icon_name;
+								$icon_value = $preloader['key_name'] . '/' . $icon_name;
+								?>
+								<li class="preloader-item">
+									<label for="<?php echo esc_attr( $icon_id ); ?>">
+										<input id="<?php echo esc_attr( $icon_id ); ?>" type="radio" name="preloader-style" value="<?php echo esc_attr( $icon_value ); ?>" <?php checked( $style, $icon_value ); ?>>
+										<img src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( $icon_id ); ?>" />
+									</label>
+								</li>
+							<?php } ?>
+						</ul>
+					</details>
 				</div>
 			<?php } ?>
 
@@ -215,5 +217,18 @@ function flat_preloader_settings_page() {
 			<a href="https://www.buymeacoffee.com/tatthien" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=tatthien&button_colour=FF5F5F&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
 		</form>
 	</div>
+
+	<script>
+		const detailsEl = document.querySelectorAll('.wp-preloading-section details')
+		detailsEl.forEach(el => {
+			const key = `flat_preloader_details_${el.id}`
+			const isOpen = JSON.parse(localStorage.getItem(key)) ?? true
+			el.open = isOpen 
+
+			el.addEventListener('toggle', event => {
+				localStorage.setItem(key, event.target.open)
+			})
+		})
+	</script>
 	<?php
 }
