@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/tatthien
 Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 4.6
 Tested up to: 6.0
-Stable tag: 1.7.0
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,10 @@ You can select where the loading page will be shown, such as home page or all pa
 3. Demo 2
 
 == Changelog ==
+
+= 1.8.0 =
+
+* Feat: Show preloader immediately when a link is clicked
 
 = 1.7.0 =
 * Feat: Able to collapse/expand the icons list
