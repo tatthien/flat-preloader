@@ -210,6 +210,19 @@ function flat_preloader_settings_page() {
 							<?php printf( __( '<a href="%s" target="_blank">Learn more</a>', 'flat-preloader' ), 'https://moz.com/learn/seo/alt-text' ); ?>
 						</p>
 					</div>
+
+					<div class="form-group">
+						<label for="show_preloader_instantly">
+							<input 
+								id="show_preloader_instantly"
+								name="preloader[show_preloader_instantly]" 
+								type="checkbox" 
+								<?php echo checked( $settings['show_preloader_instantly'], '1' ) ?> 
+								value="1"
+							>
+							<span><?php esc_html_e( 'Show preloader immediately when a link is clicked', 'flat-preloader' ); ?></span>
+						</label>
+					</div>
 				</div>
 
 				<?php echo wp_nonce_field( 'flat_preloader_option_saving' ); ?>

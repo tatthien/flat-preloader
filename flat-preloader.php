@@ -47,6 +47,15 @@ function flat_preloader_add_public_scripts() {
 		'flatPreloader',
 		array(
 			'delayTime' => $settings['delay_time'] ? $settings['delay_time'] : 1000,
+			'showPreloaderInstantly' => $settings['show_preloader_instantly'] === '1' ? true : false,
+			'host' => $_SERVER['HTTP_HOST'],
+			'ignores' => [
+				'^https?:\/\/[^\/]+' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
+				'^' . preg_quote( admin_url(), '/' ),
+				'^' . preg_quote( site_url(), '/' ) . '[^?#]+\.php',
+				preg_quote( wp_parse_url( content_url(), PHP_URL_PATH ), '/' ),
+				'.*\?.+',
+			]
 		)
 	);
 }

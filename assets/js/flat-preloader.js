@@ -1,17 +1,55 @@
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout))
-
-const $overlay = document.getElementById('flat-preloader-overlay')
+const overlayEl = document.getElementById('flat-preloader-overlay')
+const showPreloaderInstantly = flatPreloader.showPreloaderInstantly === '1' ? true : false
 
 window.addEventListener('DOMContentLoaded', async function () {
-  if (!$overlay) {
+  if (!overlayEl) {
     return
   }
 
   const delayTime = flatPreloader.delayTime
 
   await sleep(delayTime)
+
   document.body.classList.remove('flat-preloader-active')
-  $overlay.classList.add('hide')
+  overlayEl.classList.add('hide')
+
   await sleep(300)
-  $overlay.remove()
+  
+  // Show the preloader immediately
+  if (showPreloaderInstantly) {
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', e => {
+        let href = link.getAttribute('href')
+      
+        if (isIgnored(href)) {
+          return
+        }
+        
+        e.preventDefault()
+        
+        document.body.classList.add('flat-preloader-active')
+        overlayEl.classList.remove('hide')
+        
+        window.location.href = href
+      })
+    })
+  }
 })
+
+function isIgnored(url) {
+  if (!url.includes(flatPreloader.host)) {
+    return true
+  }
+
+  let ignore = false
+
+  flatPreloader.ignores.forEach(regex => {
+    if (new RegExp(regex).test(url)) {
+      ignore = true
+      return
+    }
+  })
+
+  return ignore
+}
