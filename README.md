@@ -14,6 +14,15 @@ Flat Preloader helps you create the loading page with many excited gif icons.
 
 You can select where the loading page will be shown, such as home page or all pages.
 
+**Features:**
+
+- More than 110 icons
+- Show preloader immediately when a link is clicked
+- Allow showing preloader on a specific post (any post-type)
+- Add custom icon url if you don't like the available icons.
+- Add text under loading icon.
+- Add delay time. The loading icon will fade out after the delay time.
+
 ### Installation
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the **Plugins** screen in WordPress.
@@ -33,7 +42,7 @@ You can select where the loading page will be shown, such as home page or all pa
 
 1.6.0
 
-- Feat: Allow show loading icon on a specific post (any post-type)
+- Feat: Allow showing loading icon on a specific post (any post-type)
 
 1.5.5
 
@@ -57,13 +66,13 @@ You can select where the loading page will be shown, such as home page or all pa
 
 1.5
 
-- Feat: You can add custom icon url if you don't like the avaible icons.
+- Feat: You can add custom icon url if you don't like the available icons.
 - Feat: Able to add icon alt text. This will help improve SEO score of your page.
 - Improve: Show total icons count in each icon section.
 
 1.4.1
 
-- Fix: Change HTML event from `DOMContentLoaded` to `load`. I encounter an issue when some websites use optmization plugins to minify JavaScript and load JavaScript with defer. If the script is loaded with defer, it will execute before `DOMContenLoader`. Hence, the loading screen will be stuck and will not be hidden.
+- Fix: Change HTML event from `DOMContentLoaded` to `load`. I encounter an issue when some websites use optimization plugins to minify JavaScript and load JavaScript with defer. If the script is loaded with defer, it will execute before `DOMContentLoader`. Hence, the loading screen will be stuck and will not be hidden.
 
 1.4
 
@@ -78,7 +87,7 @@ You can select where the loading page will be shown, such as home page or all pa
 
 - Feat: Add more 60+ animated icons.
 - Update: Get rid of jQuery. The script that shows the loading icon on the front-end is pure JavaScript.
-- Update: Styles of hover, active animated incons in the settings page.
+- Update: Styles of hover, active animated icons in the settings page.
 
 1.2
 
