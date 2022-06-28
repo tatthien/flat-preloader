@@ -131,98 +131,113 @@ function flat_preloader_settings_page() {
 
 				<div class="wp-preloading-section">
 					<h2 style="font-size: 1rem; margin-bottom: 1rem;"><?php esc_html_e( 'More display options', 'flat-preloader' ); ?></h2>
-					<div class="form-group">
-						<label for="preloader-display"><?php esc_html_e( 'Preloader will be appeared on', 'flat-preloader' ); ?></label>
-						<select class="widefat" name="preloader-display" id="preloader-display">
-							<option value="all" <?php selected( $display, 'all' ); ?>><?php esc_html_e( 'All pages', 'flat-preloader' ); ?></option>
-							<option value="home" <?php selected( $display, 'home' ); ?>><?php esc_html_e( 'Only homepage', 'flat-preloader' ); ?></option>
-							<option value="custom" <?php selected( $display, 'custom' ); ?>><?php esc_html_e( 'Custom', 'flat-preloader' ); ?></option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<label for="post_id"><?php esc_html_e( 'Post ID', 'flat-preloader' ); ?></label>
-						<input 
-							type="number"
-							id="post_id"
-							name="preloader[post_id]"
-							class="widefat"
-							value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : '' ?>" 
-						>
-						<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. This ID is applied if the option above is "Custom".', 'flat-preloader' ); ?></p>
-						<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
-						<div>
-							<a href="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" target="_blank">
-								<img src="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" style="max-width: 100%; height: auto;" alt="How to get post ID?">
-							</a>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="custom_image_url"><?php esc_html_e( 'Custom animated icon URL', 'flat-preloader' ); ?></label>
-						<input 
-							type="url"
-							id="custom_image_url" 
-							name="preloader[custom_image_url]" 
-							class="widefat"
-							placeholder="https://" 
-							value="<?php echo isset( $settings['custom_image_url'] ) ? esc_url( $settings['custom_image_url'] ) : ''; ?>"
-						>
-						<p class="description"><?php esc_html_e( 'If you don\'t like the icons above, you can add your own by entering the URL here. This value will override the selected icon above.', 'flat-preloader' ); ?></p>
-					</div>
-
-					<div class="form-group">
-						<label for="text_under_icon"><?php esc_html_e( 'Text under loading icon', 'flat-preloader' ); ?></label>
-						<input 
-							type="text" 
-							id="text_under_icon" 
-							name="preloader[text_under_icon]"
-							class="widefat" 
-							placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat-preloader' ); ?>" 
-							value="<?php echo isset( $settings['text_under_icon'] ) ? esc_attr( $settings['text_under_icon'] ) : ''; ?>">
-					</div>
-					
-					<div class="form-group">
-						<label for="delay_time"><?php esc_html_e( 'Delay time (ms)', 'flat-preloader' ); ?></label>
-						<input 
-							type="number" 
-							id="delay_time" 
-							name="preloader[delay_time]" 
-							class="widefat" 
-							placeholder="Default is 1 second" 
-							value="<?php echo isset( $settings['delay_time'] ) ? esc_attr( $settings['delay_time'] ) : ''; ?>"
-						>
-						<p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
-					</div>
-					
-					<div class="form-group">
-						<label for="alt"><?php esc_html_e( 'Alt text', 'flat-preloader' ); ?></label>
-						<input 
-							type="text" 
-							id="alt"
-							name="preloader[alt]" 
-							class="widefat" 
-							placeholder="" 
-							value="<?php echo isset( $settings['alt'] ) ? esc_attr( $settings['alt'] ) : ''; ?>"
-						>
-						<p class="description">
-							<?php esc_html_e( 'Add alt text for icon to improve SEO score.', 'flat-preloader' ); ?>
-							<?php printf( __( '<a href="%s" target="_blank">Learn more</a>', 'flat-preloader' ), 'https://moz.com/learn/seo/alt-text' ); ?>
-						</p>
-					</div>
-
-					<div class="form-group">
-						<label for="show_preloader_instantly">
-							<input 
-								id="show_preloader_instantly"
-								name="preloader[show_preloader_instantly]" 
-								type="checkbox" 
-								<?php echo checked( $settings['show_preloader_instantly'], '1' ) ?> 
-								value="1"
-							>
-							<span><?php esc_html_e( 'Show preloader immediately when a link is clicked', 'flat-preloader' ); ?></span>
-						</label>
-					</div>
+								
+					<table class="form-table">
+						<tbody>
+							<tr>
+								<th><label for="preloader-display"><?php esc_html_e( 'Preloader will be appeared on', 'flat-preloader' ); ?></label></th>
+								<td>
+								<select class="widefat" name="preloader-display" id="preloader-display">
+									<option value="all" <?php selected( $display, 'all' ); ?>><?php esc_html_e( 'All pages', 'flat-preloader' ); ?></option>
+									<option value="home" <?php selected( $display, 'home' ); ?>><?php esc_html_e( 'Only homepage', 'flat-preloader' ); ?></option>
+									<option value="custom" <?php selected( $display, 'custom' ); ?>><?php esc_html_e( 'Custom', 'flat-preloader' ); ?></option>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="post_id"><?php esc_html_e( 'Post ID', 'flat-preloader' ); ?></label></th>
+								<td>
+									<input 
+										type="number"
+										id="post_id"
+										name="preloader[post_id]"
+										class="widefat"
+										value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : '' ?>" 
+									>
+									<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. This ID is applied if the option above is "Custom".', 'flat-preloader' ); ?></p>
+									<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
+									<p>
+										<a href="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" target="_blank">
+											<img src="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" style="max-width: 100%; height: auto;" alt="How to get post ID?">
+										</a>
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="custom_image_url"><?php esc_html_e( 'Custom animated icon URL', 'flat-preloader' ); ?></label></th>
+								<td>
+									<input 
+										type="url"
+										id="custom_image_url" 
+										name="preloader[custom_image_url]" 
+										class="widefat"
+										placeholder="https://" 
+										value="<?php echo isset( $settings['custom_image_url'] ) ? esc_url( $settings['custom_image_url'] ) : ''; ?>"
+									>
+									<p class="description"><?php esc_html_e( 'If you don\'t like the icons above, you can add your own by entering the URL here. This value will override the selected icon above.', 'flat-preloader' ); ?></p>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="text_under_icon"><?php esc_html_e( 'Text under loading icon', 'flat-preloader' ); ?></label></th>
+								<td>
+									<input 
+										type="text" 
+										id="text_under_icon" 
+										name="preloader[text_under_icon]"
+										class="widefat" 
+										placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat-preloader' ); ?>" 
+										value="<?php echo isset( $settings['text_under_icon'] ) ? esc_attr( $settings['text_under_icon'] ) : ''; ?>"
+									>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="delay_time"><?php esc_html_e( 'Delay time (ms)', 'flat-preloader' ); ?></label></th>
+								<td>
+									<input 
+										type="number" 
+										id="delay_time" 
+										name="preloader[delay_time]" 
+										class="widefat" 
+										placeholder="Default is 1 second" 
+										value="<?php echo isset( $settings['delay_time'] ) ? esc_attr( $settings['delay_time'] ) : ''; ?>"
+									>
+									<p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="alt"><?php esc_html_e( 'Alt text', 'flat-preloader' ); ?></label></th>
+								<td>
+									<input 
+										type="text" 
+										id="alt"
+										name="preloader[alt]" 
+										class="widefat" 
+										placeholder="" 
+										value="<?php echo isset( $settings['alt'] ) ? esc_attr( $settings['alt'] ) : ''; ?>"
+									>
+									<p class="description">
+										<?php esc_html_e( 'Add alt text for icon to improve SEO score.', 'flat-preloader' ); ?>
+										<?php printf( __( '<a href="%s" target="_blank">Learn more</a>', 'flat-preloader' ), 'https://moz.com/learn/seo/alt-text' ); ?>
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<th>Show preloader immediately</th>
+								<td>
+									<label for="show_preloader_instantly">
+										<input 
+											id="show_preloader_instantly"
+											name="preloader[show_preloader_instantly]" 
+											type="checkbox" 
+											<?php echo checked( $settings['show_preloader_instantly'], '1' ) ?> 
+											value="1"
+										>
+										<span><?php esc_html_e( 'Show preloader immediately when a link is clicked', 'flat-preloader' ); ?></span>
+									</label>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 				<?php echo wp_nonce_field( 'flat_preloader_option_saving' ); ?>
