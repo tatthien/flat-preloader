@@ -56,19 +56,19 @@ function flat_preloader_settings_page() {
 		array(
 			array(
 				'key_name'   => 'color-style',
-				'title_name' => 'Color style animated icons',
+				'title_name' => 'Color',
 			),
 			array(
 				'key_name'   => 'ios-glyph',
-				'title_name' => 'iOS Glyph style animated icons',
+				'title_name' => 'iOS Glyph',
 			),
 			array(
 				'key_name'   => 'windows-10',
-				'title_name' => 'Windows 10 style animated icons',
+				'title_name' => 'Windows 10',
 			),
 			array(
 				'key_name'   => 'office-style',
-				'title_name' => 'Office style style animated icons',
+				'title_name' => 'Office',
 			),
 			array(
 				'key_name'   => 'modern-flat',
