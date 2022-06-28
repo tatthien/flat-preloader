@@ -1,4 +1,10 @@
 <?php
+/**
+ * The main file of the Flat Preloader Settings
+ *
+ * @package flat-preloader
+ */
+
 defined( 'ABSPATH' ) || die;
 
 add_action( 'admin_menu', 'flat_preloader_settings_menu' );
@@ -131,7 +137,6 @@ function flat_preloader_settings_page() {
 
 				<div class="wp-preloading-section">
 					<h2 style="font-size: 1rem; margin-bottom: 1rem;"><?php esc_html_e( 'More display options', 'flat-preloader' ); ?></h2>
-								
 					<table class="form-table">
 						<tbody>
 							<tr>

@@ -1,14 +1,19 @@
 <?php
-/*
-Plugin Name: Flat Preloader
-Plugin URI:  https://wordpress.org/plugins/flat-preloader/
-Description: Create preloading page with many various styles
-Version:     1.8.1
-Author:      Thien Nguyen
-Author URI:  https://thien.dev
-License:     GPL2
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * The main file of the Flat Preloader
+ *
+ * @package flat-preloader
+ * @version 1.8.1
+ *
+ * Plugin Name: Flat Preloader
+ * Plugin URI:  https://wordpress.org/plugins/flat-preloader/
+ * Description: Create preloading page with many various styles
+ * Version:     1.8.1
+ * Author:      Thien Nguyen
+ * Author URI:  https://thien.dev
+ * License:     GPL2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 defined( 'ABSPATH' ) || die;
 
