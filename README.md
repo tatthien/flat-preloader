@@ -31,6 +31,10 @@ You can select where the loading page will be shown, such as home page or all pa
 
 ### Changelog
 
+1.8.1
+
+- Improve: Settings page UI
+
 1.8.0
 
 - Feat: Show preloader immediately when a link is clicked
