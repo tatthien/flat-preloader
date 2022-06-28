@@ -140,7 +140,7 @@ function flat_preloader_settings_page() {
 					<table class="form-table">
 						<tbody>
 							<tr>
-								<th><label for="preloader-display"><?php esc_html_e( 'Preloader will be appeared on', 'flat-preloader' ); ?></label></th>
+								<th><label for="preloader-display"><?php esc_html_e( 'Show preloader on', 'flat-preloader' ); ?></label></th>
 								<td>
 								<select class="widefat" name="preloader-display" id="preloader-display">
 									<option value="all" <?php selected( $display, 'all' ); ?>><?php esc_html_e( 'All pages', 'flat-preloader' ); ?></option>
@@ -169,7 +169,7 @@ function flat_preloader_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th><label for="custom_image_url"><?php esc_html_e( 'Custom animated icon URL', 'flat-preloader' ); ?></label></th>
+								<th><label for="custom_image_url"><?php esc_html_e( 'Custom icon URL', 'flat-preloader' ); ?></label></th>
 								<td>
 									<input 
 										type="url"
@@ -183,7 +183,7 @@ function flat_preloader_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th><label for="text_under_icon"><?php esc_html_e( 'Text under loading icon', 'flat-preloader' ); ?></label></th>
+								<th><label for="text_under_icon"><?php esc_html_e( 'Text under icon', 'flat-preloader' ); ?></label></th>
 								<td>
 									<input 
 										type="text" 
@@ -203,7 +203,7 @@ function flat_preloader_settings_page() {
 										id="delay_time" 
 										name="preloader[delay_time]" 
 										class="widefat" 
-										placeholder="Default is 1 second" 
+										placeholder="Default is 1000 ms (1 second)" 
 										value="<?php echo isset( $settings['delay_time'] ) ? esc_attr( $settings['delay_time'] ) : ''; ?>"
 									>
 									<p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
