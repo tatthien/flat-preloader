@@ -227,7 +227,7 @@ function flat_preloader_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th>Show preloader immediately</th>
+								<th><?php esc_html_e( 'Show preloader immediately', 'flat-preloader' ); ?></th>
 								<td>
 									<label for="show_preloader_instantly">
 										<input 
@@ -260,12 +260,12 @@ function flat_preloader_settings_page() {
 				<h2 class="hndle"><?php echo esc_html__( 'Support me', 'flat-preloader' ); ?></h2>
 			</div>
 			<div class="inside">
-				<h4>Thanks for using my plugin. Your support means a lot to me.</h4>
+				<h4><?php esc_html_e( 'Thanks for using my plugin. Your support means a lot to me.', 'flat-preloader' ); ?></h4>
 				<div>
 					<a href="https://www.buymeacoffee.com/tatthien" class="btn-buy-me-a-coffee" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=tatthien&button_colour=FF5F5F&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
 				</div>
 				<div class="rate-and-review">
-					<p>Rate and Submit a review</p>
+					<p><?php esc_html_e( 'Rate and Submit a review', 'flat-preloader' ); ?></p>
 					<a href="https://wordpress.org/support/plugin/flat-preloader/reviews/#new-post" target="_blank">⭐⭐⭐⭐⭐</a>
 				</div>
 			</div>
