@@ -25,10 +25,6 @@ require_once dirname( __FILE__ ) . '/flat-preloader-settings.php';
 
 /**
  * Add scripts and styles for plugin settings
- *
- * @param void
- *
- * @return void
  */
 function flat_preloader_add_admin_scripts() {
 	wp_enqueue_style( 'flat-preloader-admin', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader.css', array(), FLAT_PRELOADER_VERSION, 'all' );
@@ -38,10 +34,6 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
 
 /**
  * Add scripts and styles for front page
- *
- * @param void
- *
- * @return void
  */
 function flat_preloader_add_public_scripts() {
 	$settings = get_option( '_flat_preloader' );
@@ -51,16 +43,16 @@ function flat_preloader_add_public_scripts() {
 		'flat-preloader-js',
 		'flatPreloader',
 		array(
-			'delayTime' => $settings['delay_time'] ? $settings['delay_time'] : 1000,
+			'delayTime'              => $settings['delay_time'] ? $settings['delay_time'] : 1000,
 			'showPreloaderInstantly' => $settings['show_preloader_instantly'] === '1' ? true : false,
-			'host' => $_SERVER['HTTP_HOST'],
-			'ignores' => [
+			'host'                   => $_SERVER['HTTP_HOST'],
+			'ignores'                => array(
 				'^https?:\/\/[^\/]+' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
 				'^' . preg_quote( admin_url(), '/' ),
 				'^' . preg_quote( site_url(), '/' ) . '[^?#]+\.php',
 				preg_quote( wp_parse_url( content_url(), PHP_URL_PATH ), '/' ),
 				'.*\?.+',
-			]
+			),
 		)
 	);
 }
@@ -68,19 +60,15 @@ function flat_preloader_add_public_scripts() {
 add_action( 'wp_enqueue_scripts', 'flat_preloader_add_public_scripts' );
 
 /**
- * Preloading shortcode
- *
- * @param void
- *
- * @return string $output
+ * Preloader output
  */
 function flat_preloader_output() {
 	global $post;
-	
+
 	$style = get_option( 'preloader-style' );
 
 	if ( ! $style ) {
-		$style = 'flat/flat_8.gif'; // Default style
+		$style = 'flat/flat_8.gif';
 	}
 
 	$display  = get_option( 'preloader-display' );
@@ -97,10 +85,10 @@ function flat_preloader_output() {
 	?>
 	<div id="flat-preloader-overlay" class="<?php echo $overlay_class; ?>">
 		<?php do_action( 'flat_preloader_output_before_overlay', $settings ); ?>
-		
+
 		<img src="<?php echo $image_url; ?>" alt="<?php echo $alt; ?>">
 		<small><?php echo $text; ?></small>
-	
+
 		<?php do_action( 'flat_preloader_output_after_overlay', $settings ); ?>
 	</div>
 	<?php
@@ -129,9 +117,9 @@ add_action( 'wp_head', 'flat_preloader_output', 1000 );
 function flat_preloader_body_classes( $classes ) {
 	$display = get_option( 'preloader-display' );
 
-	if ( $display == 'home' && ( is_home() || is_front_page() ) ) {
+	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
 		$classes[] = 'flat-preloader-active';
-	} elseif ( $display == 'all' ) {
+	} elseif ( $display === 'all' ) {
 		$classes[] = 'flat-preloader-active';
 	}
 
@@ -143,12 +131,12 @@ add_filter( 'body_class', 'flat_preloader_body_classes' );
 /**
  * Add plugin action links
  *
- * @param array $links
+ * @param array $links The plugin action links.
  *
  * @return array $links
  */
 function flat_preloader_plugin_action_links( $links ) {
-	$links[] = '<a href="' . esc_url( get_admin_url( null, 'options-general.php?page=flat-preloader' ) ) . '">' . esc_html__( 'Settings' ) . '</a>';
+	$links[] = '<a href="' . esc_url( get_admin_url( null, 'options-general.php?page=flat-preloader' ) ) . '">' . esc_html__( 'Settings', 'flat-preloader' ) . '</a>';
 	return $links;
 }
 

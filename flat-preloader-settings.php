@@ -9,6 +9,9 @@ defined( 'ABSPATH' ) || die;
 
 add_action( 'admin_menu', 'flat_preloader_settings_menu' );
 
+/**
+ * Add the settings menu
+ */
 function flat_preloader_settings_menu() {
 	$page_slug = 'flat-preloader';
 
@@ -24,7 +27,7 @@ function flat_preloader_settings_menu() {
 	/* Save options */
 	if ( isset( $_GET['page'] ) && $_GET['page'] === $page_slug ) {
 		if ( isset( $_REQUEST['save-option'] ) && $_REQUEST['save-option'] !== '' ) {
-			// Verify nonce
+			// Verify nonce.
 			if ( ! isset( $_REQUEST['_wpnonce'] ) ) {
 				return false;
 			}
@@ -44,7 +47,7 @@ function flat_preloader_settings_menu() {
 			if ( isset( $_POST['preloader'] ) ) {
 				$sanitized_opts = array();
 				foreach ( $_POST['preloader'] as $key => $value ) {
-					$value = apply_filters('flat_preloader_option_' . $key, $value);
+					$value = apply_filters( 'flat_preloader_option_' . $key, $value );
 
 					if ( $key === 'custom_image_url' ) {
 						$sanitized_opts[ $key ] = esc_url_raw( $value );
@@ -60,6 +63,9 @@ function flat_preloader_settings_menu() {
 	}
 }
 
+/**
+ * Output the settings page
+ */
 function flat_preloader_settings_page() {
 	$preloader_img = apply_filters(
 		'flat_preloader_styles',
@@ -95,8 +101,8 @@ function flat_preloader_settings_page() {
 		)
 	);
 
-	$style   = get_option( 'preloader-style' );
-	$display = get_option( 'preloader-display' );
+	$style    = get_option( 'preloader-style' );
+	$display  = get_option( 'preloader-display' );
 	$settings = get_option( '_flat_preloader' );
 	?>
 	<h1 style="padding-top: 1.5rem"><?php esc_html_e( 'Flat Preloader Settings', 'flat-preloader' ); ?></h1>
@@ -161,7 +167,7 @@ function flat_preloader_settings_page() {
 										id="post_id"
 										name="preloader[post_id]"
 										class="widefat"
-										value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : '' ?>" 
+										value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : ''; ?>" 
 									>
 									<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. This ID is applied if the option above is "Custom".', 'flat-preloader' ); ?></p>
 									<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
@@ -197,7 +203,7 @@ function flat_preloader_settings_page() {
 										placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat-preloader' ); ?>" 
 										value="<?php echo isset( $settings['text_under_icon'] ) ? esc_attr( $settings['text_under_icon'] ) : ''; ?>"
 									>
-									
+
 									<?php echo do_action( 'flat_preloader_after_text_under_icon', $settings ); ?>
 								</td>
 							</tr>
@@ -228,6 +234,7 @@ function flat_preloader_settings_page() {
 									>
 									<p class="description">
 										<?php esc_html_e( 'Add alt text for icon to improve SEO score.', 'flat-preloader' ); ?>
+										<?php /* translators: %s: a URL */ ?>
 										<?php printf( __( '<a href="%s" target="_blank">Learn more</a>', 'flat-preloader' ), 'https://moz.com/learn/seo/alt-text' ); ?>
 									</p>
 								</td>
@@ -240,7 +247,7 @@ function flat_preloader_settings_page() {
 											id="show_preloader_instantly"
 											name="preloader[show_preloader_instantly]" 
 											type="checkbox" 
-											<?php echo checked( $settings['show_preloader_instantly'], '1' ) ?> 
+											<?php echo checked( $settings['show_preloader_instantly'], '1' ); ?> 
 											value="1"
 										>
 										<span><?php esc_html_e( 'Show preloader immediately when a link is clicked', 'flat-preloader' ); ?></span>
@@ -272,7 +279,7 @@ function flat_preloader_settings_page() {
 					<p><?php esc_html_e( 'Thanks for using my plugin. Your support means a lot to me.', 'flat-preloader' ); ?></p>
 					<div class="mb-4">
 						<?php
-							_e('Please rate <strong>Flat Preloader</strong> <a href="https://wordpress.org/support/plugin/flat-preloader/reviews/?filter=5#new-post" target="_blank">⭐⭐⭐⭐⭐</a> on <a href="https://wordpress.org/support/plugin/flat-preloader/reviews/?filter=5#new-post" target="_blank">WordPress.org</a> to help me spread the word.', 'flat-preloader');
+							_e( 'Please rate <strong>Flat Preloader</strong> <a href="https://wordpress.org/support/plugin/flat-preloader/reviews/?filter=5#new-post" target="_blank">⭐⭐⭐⭐⭐</a> on <a href="https://wordpress.org/support/plugin/flat-preloader/reviews/?filter=5#new-post" target="_blank">WordPress.org</a> to help me spread the word.', 'flat-preloader' );
 						?>
 					</div>
 					<div class="hide-on-pro">
@@ -285,7 +292,7 @@ function flat_preloader_settings_page() {
 					<h2 class="hndle"><?php esc_html_e( 'Pro version', 'flat-preloader' ); ?></h2>
 				</div>
 				<div class="inside">
-					<p><?php _e('You\'re using Flat Preloader free version. To unlock more features consider <a href="https://thisisthien.gumroad.com/l/flat-preloader-pro" target="_blank">upgrade to Pro</a>', 'flat-preloader'); ?></p>
+					<p><?php _e( 'You\'re using Flat Preloader free version. To unlock more features consider <a href="https://thisisthien.gumroad.com/l/flat-preloader-pro" target="_blank">upgrade to Pro</a>', 'flat-preloader' ); ?></p>
 					<ul>
 						<li>⚡️ <?php _e( '<strong>"Unlimited"</strong> CSS loading animations', 'flat-preloader' ); ?></li>
 						<li>⚡️ <?php esc_html_e( 'Change background image, color or gradient', 'flat-preloader' ); ?></li>

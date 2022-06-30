@@ -12,6 +12,10 @@
 	<!-- Exclude minified Javascript files. -->
 	<exclude-pattern>*.js</exclude-pattern>
 
+	<rule ref="WordPress-Core">
+		<exclude name="WordPress.PHP.YodaConditions"/>
+	</rule>
+
 	<!-- Inlude the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">
 		<!--
@@ -25,10 +29,8 @@
 		They are not intended as advice about which sniffs to exclude.
 		-->
 
-		<!--
 		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
 		<exclude name="WordPress.Security.EscapeOutput"/>
-		-->
 	</rule>
 
 	<!-- Let's also check that everything is properly documented. -->
@@ -65,8 +67,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="my-textdomain"/>
-				<element value="library-textdomain"/>
+				<element value="flat-preloader"/>
 			</property>
 		</properties>
 	</rule>
@@ -74,7 +75,7 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="my_prefix"/>
+				<element value="flat_preloader"/>
 			</property>
 		</properties>
 	</rule>
