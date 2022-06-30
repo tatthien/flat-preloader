@@ -1,5 +1,5 @@
 .wp-preloading-wrapper {
-  max-width: 1024px;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr;
   margin-right: 10px;
@@ -77,14 +77,18 @@ input[type="submit"] {
   height: auto;
 }
 
-.wp-preloading-wrapper .rate-and-review {
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
   margin-bottom: 1rem;
-}
-
-.wp-preloading-wrapper .rate-and-review p {
-  margin-bottom: 0;
-}
-
-.wp-preloading-wrapper .rate-and-review a {
-  font-size: 2rem;
 }

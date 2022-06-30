@@ -3,12 +3,12 @@
  * The main file of the Flat Preloader
  *
  * @package flat-preloader
- * @version 1.8.1
+ * @version 1.9.0
  *
  * Plugin Name: Flat Preloader
  * Plugin URI:  https://wordpress.org/plugins/flat-preloader/
  * Description: Create preloading page with many various styles
- * Version:     1.8.1
+ * Version:     1.9.0
  * Author:      Thien Nguyen
  * Author URI:  https://thien.dev
  * License:     GPL2
@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || die;
 
 define( 'FLAT_PRELOADER_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FLAT_PRELOADER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'FLAT_PRELOADER_VERSION', '1.8.1' );
+define( 'FLAT_PRELOADER_VERSION', '1.9.0' );
 
 require_once dirname( __FILE__ ) . '/flat-preloader-settings.php';
 
@@ -93,7 +93,18 @@ function flat_preloader_output() {
 
 	$overlay_class = $settings['custom_image_url'] ? 'fpo-custom' : 'fpo-default';
 
-	$content = '<div id="flat-preloader-overlay" class="' . $overlay_class . '"><img src="' . $image_url . '" alt="' . $alt . '"/><small>' . $text . '</small></div>';
+	ob_start();
+	?>
+	<div id="flat-preloader-overlay" class="<?php echo $overlay_class; ?>">
+		<?php do_action( 'flat_preloader_output_before_overlay', $settings ); ?>
+		
+		<img src="<?php echo $image_url; ?>" alt="<?php echo $alt; ?>">
+		<small><?php echo $text; ?></small>
+	
+		<?php do_action( 'flat_preloader_output_after_overlay', $settings ); ?>
+	</div>
+	<?php
+	$content = ob_get_clean();
 
 	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
 		echo $content;

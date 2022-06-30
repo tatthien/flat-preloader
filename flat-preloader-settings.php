@@ -44,12 +44,16 @@ function flat_preloader_settings_menu() {
 			if ( isset( $_POST['preloader'] ) ) {
 				$sanitized_opts = array();
 				foreach ( $_POST['preloader'] as $key => $value ) {
+					$value = apply_filters('flat_preloader_option_' . $key, $value);
+
 					if ( $key === 'custom_image_url' ) {
 						$sanitized_opts[ $key ] = esc_url_raw( $value );
 						continue;
 					}
+
 					$sanitized_opts[ $key ] = sanitize_text_field( $value );
 				}
+
 				update_option( '_flat_preloader', $sanitized_opts );
 			}
 		}
@@ -99,15 +103,15 @@ function flat_preloader_settings_page() {
 	<div class="wp-preloading-wrapper metabox-holder">
 		<div class="postbox">
 			<div class="postbox-header">
-				<h2 class="hndle">Settings</h2>
+				<h2 class="hndle"><?php esc_html_e( 'Settings', 'flat-preloader' ); ?></h2>
 			</div>
 			<div class="inside">
 				<form method="post">
 				<?php foreach ( $preloader_img as $preloader ) { ?>
 					<div class="wp-preloading-section">
 						<?php
-						$icon_dir_path = FLAT_PRELOADER_PLUGIN_PATH . '/assets/images/' . $preloader['key_name'];
-						$icon_dir_url  = FLAT_PRELOADER_PLUGIN_URL . '/assets/images/' . $preloader['key_name'];
+						$icon_dir_path = FLAT_PRELOADER_PLUGIN_PATH . '/assets/img/' . $preloader['key_name'];
+						$icon_dir_url  = FLAT_PRELOADER_PLUGIN_URL . '/assets/img/' . $preloader['key_name'];
 						$files         = glob( $icon_dir_path . '/*.gif' );
 						$total_files   = count( $files );
 						$title_name    = $preloader['title_name'];
@@ -136,7 +140,7 @@ function flat_preloader_settings_page() {
 				<?php } ?>
 
 				<div class="wp-preloading-section">
-					<h2 style="font-size: 1rem; margin-bottom: 1rem;"><?php esc_html_e( 'More display options', 'flat-preloader' ); ?></h2>
+					<h3 class="mb-1"><?php esc_html_e( 'More display options', 'flat-preloader' ); ?></h3>
 					<table class="form-table">
 						<tbody>
 							<tr>
@@ -149,7 +153,7 @@ function flat_preloader_settings_page() {
 								</select>
 								</td>
 							</tr>
-							<tr>
+							<tr id="fp-option-post-id" <?php echo $display !== 'custom' ? 'style="display: none;"' : ''; ?>>
 								<th><label for="post_id"><?php esc_html_e( 'Post ID', 'flat-preloader' ); ?></label></th>
 								<td>
 									<input 
@@ -193,6 +197,8 @@ function flat_preloader_settings_page() {
 										placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat-preloader' ); ?>" 
 										value="<?php echo isset( $settings['text_under_icon'] ) ? esc_attr( $settings['text_under_icon'] ) : ''; ?>"
 									>
+									
+									<?php echo do_action( 'flat_preloader_after_text_under_icon', $settings ); ?>
 								</td>
 							</tr>
 							<tr>
@@ -243,6 +249,8 @@ function flat_preloader_settings_page() {
 							</tr>
 						</tbody>
 					</table>
+
+					<?php do_action( 'flat_preloader_after_settings', $settings ); ?>
 				</div>
 
 				<?php echo wp_nonce_field( 'flat_preloader_option_saving' ); ?>
@@ -255,18 +263,34 @@ function flat_preloader_settings_page() {
 			</form>
 			</div>
 		</div>
-		<aside class="postbox">
-			<div class="postbox-header"<?php echo esc_html__( 'Support me', 'flat-preloader' ); ?>>
-				<h2 class="hndle"><?php echo esc_html__( 'Support me', 'flat-preloader' ); ?></h2>
-			</div>
-			<div class="inside">
-				<h4><?php esc_html_e( 'Thanks for using my plugin. Your support means a lot to me.', 'flat-preloader' ); ?></h4>
-				<div>
-					<a href="https://www.buymeacoffee.com/tatthien" class="btn-buy-me-a-coffee" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=tatthien&button_colour=FF5F5F&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
+		<aside>
+			<div class="postbox">
+				<div class="postbox-header">
+					<h2 class="hndle"><?php echo esc_html__( 'Support me', 'flat-preloader' ); ?></h2>
 				</div>
-				<div class="rate-and-review">
-					<p><?php esc_html_e( 'Rate and Submit a review', 'flat-preloader' ); ?></p>
-					<a href="https://wordpress.org/support/plugin/flat-preloader/reviews/#new-post" target="_blank">⭐⭐⭐⭐⭐</a>
+				<div class="inside">
+					<p><?php esc_html_e( 'Thanks for using my plugin. Your support means a lot to me.', 'flat-preloader' ); ?></p>
+					<div class="mb-4">
+						<?php
+							_e('Please rate <strong>Flat Preloader</strong> <a href="https://wordpress.org/support/plugin/flat-preloader/reviews/?filter=5#new-post" target="_blank">⭐⭐⭐⭐⭐</a> on <a href="https://wordpress.org/support/plugin/flat-preloader/reviews/?filter=5#new-post" target="_blank">WordPress.org</a> to help me spread the word.', 'flat-preloader');
+						?>
+					</div>
+					<div class="hide-on-pro">
+						<a href="https://www.buymeacoffee.com/tatthien" class="btn-buy-me-a-coffee" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=tatthien&button_colour=FF5F5F&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
+					</div>
+				</div>
+			</div>
+			<div class="postbox hide-on-pro">
+				<div class="postbox-header">
+					<h2 class="hndle"><?php esc_html_e( 'Pro version', 'flat-preloader' ); ?></h2>
+				</div>
+				<div class="inside">
+					<p><?php _e('You\'re using Flat Preloader free version. To unlock more features consider <a href="https://thisisthien.gumroad.com/l/flat-preloader-pro" target="_blank">upgrade to Pro</a>', 'flat-preloader'); ?></p>
+					<ul>
+						<li>⚡️ <?php _e( '<strong>"Unlimited"</strong> CSS loading animations', 'flat-preloader' ); ?></li>
+						<li>⚡️ <?php esc_html_e( 'Change background image, color or gradient', 'flat-preloader' ); ?></li>
+						<li>⚡️ <?php esc_html_e( 'Change the size, and color of the text under preloader', 'flat-preloader' ); ?></li>
+					</ul>
 				</div>
 			</div>
 		</aside>
@@ -282,6 +306,16 @@ function flat_preloader_settings_page() {
 			el.addEventListener('toggle', event => {
 				localStorage.setItem(key, event.target.open)
 			})
+		})
+
+		// Toggle show/hide post-id option
+		document.getElementById('preloader-display').addEventListener('change', event => {
+			const value = event.target.value
+			if (value === 'custom') {
+				document.getElementById('fp-option-post-id').style.display = 'table-row'
+			} else {
+				document.getElementById('fp-option-post-id').style.display = 'none'
+			}
 		})
 	</script>
 	<?php
