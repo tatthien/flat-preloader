@@ -74,7 +74,7 @@ function flat_preloader_output() {
 	$display  = get_option( 'preloader-display' );
 	$settings = get_option( '_flat_preloader' );
 
-	$image_url = $settings['custom_image_url'] ? $settings['custom_image_url'] : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/images/' . $style;
+	$image_url = $settings['custom_image_url'] ? $settings['custom_image_url'] : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/img/' . $style;
 	$text      = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
 	$alt       = $settings['alt'] ? esc_attr( $settings['alt'] ) : '';
 	$post_id   = $settings['post_id'] ? (int) esc_attr( $settings['post_id'] ) : '';
