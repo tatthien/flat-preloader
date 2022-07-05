@@ -250,8 +250,9 @@ function flat_preloader_settings_page() {
 											<?php echo checked( $settings['show_preloader_instantly'], '1' ); ?> 
 											value="1"
 										>
-										<span><?php esc_html_e( 'Show preloader immediately when a link is clicked', 'flat-preloader' ); ?></span>
+										<span><?php esc_html_e( 'Show preloader immediately when a link is clicked.', 'flat-preloader' ); ?></span>
 									</label>
+									<p class="description"><?php esc_html_e( 'This only works only if the "Show preloader on" option is "All pages"', 'flat-preloader' ); ?></p>
 								</td>
 							</tr>
 						</tbody>

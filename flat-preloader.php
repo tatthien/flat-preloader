@@ -37,6 +37,8 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
  */
 function flat_preloader_add_public_scripts() {
 	$settings = get_option( '_flat_preloader' );
+	$display  = get_option( 'preloader-display' );
+
 	wp_enqueue_style( 'flat-preloader', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
 	wp_enqueue_script( 'flat-preloader-js', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
 	wp_localize_script(
@@ -44,7 +46,7 @@ function flat_preloader_add_public_scripts() {
 		'flatPreloader',
 		array(
 			'delayTime'              => $settings['delay_time'] ? $settings['delay_time'] : 1000,
-			'showPreloaderInstantly' => $settings['show_preloader_instantly'] === '1' ? true : false,
+			'showPreloaderInstantly' => $settings['show_preloader_instantly'] === '1' && $display === 'all' ? true : false,
 			'host'                   => $_SERVER['HTTP_HOST'],
 			'ignores'                => array(
 				'^https?:\/\/[^\/]+' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
@@ -53,6 +55,7 @@ function flat_preloader_add_public_scripts() {
 				preg_quote( wp_parse_url( content_url(), PHP_URL_PATH ), '/' ),
 				'.*\?.+',
 			),
+			'display' => $display,
 		)
 	);
 }
