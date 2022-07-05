@@ -37,6 +37,10 @@ Features:
 
 == Changelog ==
 
+= 1.9.0 = 
+
+* Introduce Flat Preloader Pro
+
 = 1.8.1 =
 
 * Improve: Settings page UI
