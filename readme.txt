@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/tatthien
 Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 4.6
 Tested up to: 6.0
-Stable tag: 1.9.0
+Stable tag: 1.10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,10 @@ You can select where the loading page will be shown, such as home page or all pa
 4. Demo 2
 
 == Changelog ==
+
+= 1.10.0 =
+
+- Feat: Allow multiple post ID for custom display
 
 = 1.9.0 = 
 
