@@ -163,13 +163,13 @@ function flat_preloader_settings_page() {
 								<th><label for="post_id"><?php esc_html_e( 'Post ID', 'flat-preloader' ); ?></label></th>
 								<td>
 									<input 
-										type="number"
+										type="text"
 										id="post_id"
 										name="preloader[post_id]"
 										class="widefat"
 										value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : ''; ?>" 
 									>
-									<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. This ID is applied if the option above is "Custom".', 'flat-preloader' ); ?></p>
+									<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. Multiple ID separated by comma.', 'flat-preloader' ); ?></p>
 									<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
 									<p>
 										<a href="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" target="_blank">

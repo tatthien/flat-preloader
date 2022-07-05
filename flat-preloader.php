@@ -77,7 +77,7 @@ function flat_preloader_output() {
 	$image_url = $settings['custom_image_url'] ? $settings['custom_image_url'] : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/img/' . $style;
 	$text      = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
 	$alt       = $settings['alt'] ? esc_attr( $settings['alt'] ) : '';
-	$post_id   = $settings['post_id'] ? (int) esc_attr( $settings['post_id'] ) : '';
+	$post_id   = $settings['post_id'] ? esc_attr( $settings['post_id'] ) : '';
 
 	$overlay_class = $settings['custom_image_url'] ? 'fpo-custom' : 'fpo-default';
 
@@ -93,12 +93,17 @@ function flat_preloader_output() {
 	</div>
 	<?php
 	$content = ob_get_clean();
+	
+	$ids = explode(',', $post_id);
+	$ids = array_map(function ($id) {
+		return (int) trim($id);
+	}, $ids);
 
 	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
 		echo $content;
 	} elseif ( $display === 'all' ) {
 		echo $content;
-	} elseif ( $display === 'custom' && $post->ID === $post_id && is_singular() ) {
+	} elseif ( $display === 'custom' && in_array( $post->ID, $ids, true ) && is_singular() ) {
 		echo $content;
 	}
 }
