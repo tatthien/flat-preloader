@@ -32,8 +32,9 @@ Features:
 == Screenshots ==
 
 1. Settings
-2. Demo 1
-3. Demo 2
+2. Settings
+3. Demo 1
+4. Demo 2
 
 == Changelog ==
 
