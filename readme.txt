@@ -14,7 +14,7 @@ Flat Preloader helps you create the loading page with many excited gif icons.
 
 You can select where the loading page will be shown, such as home page or all pages.
 
-Features:
+### Features:
 
 * More than 110 icons
 * Show preloader immediately when a link is clicked
@@ -22,6 +22,9 @@ Features:
 * Add custom icon url if you don't like the available icons.
 * Add text under loading icon.
 * Add delay time. The loading icon will fade out after the delay time.
+* <strong>"Unlimited"</strong> CSS loading animations <a href="https://thisisthien.gumroad.com/l/flat-preloader-pro" rel="friend">[Pro]</a>
+* Change the background image, color, or gradient <a href="https://thisisthien.gumroad.com/l/flat-preloader-pro" rel="friend">[Pro]</a>
+* Change the size, and color of the text under preloader <a href="https://thisisthien.gumroad.com/l/flat-preloader-pro" rel="friend">[Pro]</a>
 
 == Installation ==
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
