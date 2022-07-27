@@ -38,6 +38,10 @@ You can select where the loading page will be shown, such as home page or all pa
 2. Settings
 3. Demo 1
 4. Demo 2
+5. Pro - Settings
+6. Pro - Background color with opacity
+7. Pro - Background gradienta
+8. Pro - Background image + custom gif
 
 == Changelog ==
 
