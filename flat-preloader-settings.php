@@ -229,7 +229,7 @@ function flat_preloader_settings_page() {
 										id="alt"
 										name="preloader[alt]" 
 										class="widefat" 
-										placeholder="" 
+										placeholder="Eg: Loading icon" 
 										value="<?php echo isset( $settings['alt'] ) ? esc_attr( $settings['alt'] ) : ''; ?>"
 									>
 									<p class="description">
