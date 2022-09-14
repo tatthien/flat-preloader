@@ -14,6 +14,8 @@ Flat Preloader helps you create the loading page with many excited gif icons.
 
 You can select where the loading page will be shown, such as home page or all pages.
 
+Feature Requests 👉 <a href="https://github.com/tatthien/flat-preloader/issues/new" rel="friend" target="_blank">Click here</a>
+
 ### Features:
 
 * More than 110 icons
