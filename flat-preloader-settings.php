@@ -46,6 +46,7 @@ function flat_preloader_settings_menu() {
 
 			if ( isset( $_POST['preloader'] ) ) {
 				$sanitized_opts = array();
+		
 				foreach ( $_POST['preloader'] as $key => $value ) {
 					$value = apply_filters( 'flat_preloader_option_' . $key, $value );
 
@@ -112,7 +113,7 @@ function flat_preloader_settings_page() {
 				<h2 class="hndle"><?php esc_html_e( 'Settings', 'flat-preloader' ); ?></h2>
 			</div>
 			<div class="inside">
-				<form method="post">
+				<form method="post" id="flat-preloader-settings-form">
 				<?php foreach ( $preloader_img as $preloader ) { ?>
 					<div class="wp-preloading-section">
 						<?php
@@ -263,7 +264,7 @@ function flat_preloader_settings_page() {
 
 				<?php echo wp_nonce_field( 'flat_preloader_option_saving' ); ?>
 
-				<input type="submit" class="button-primary" name="save-option" value="Save Changes">
+				<input type="submit" id="flat-preloader-submit-form-button" class="button-primary" name="save-option" value="Save Changes">
 
 				<div>
 					<p><?php esc_html_e( 'Animated icons by', 'flat-preloader' ); ?>: <a href="https://icons8.com">icon8</a>, <a href="https://pixelbuddha.net/">PixelBuddha</a></p>
