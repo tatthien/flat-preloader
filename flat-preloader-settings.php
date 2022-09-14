@@ -272,6 +272,7 @@ function flat_preloader_settings_page() {
 			</div>
 		</div>
 		<aside>
+			<?php echo do_action( 'flat_preloader_before_aside', $settings ); ?>
 			<div class="postbox">
 				<div class="postbox-header">
 					<h2 class="hndle"><?php echo esc_html__( 'Support me', 'flat-preloader' ); ?></h2>
@@ -301,6 +302,7 @@ function flat_preloader_settings_page() {
 					</ul>
 				</div>
 			</div>
+			<?php echo do_action( 'flat_preloader_after_aside', $settings ); ?>
 		</aside>
 	</div>
 
