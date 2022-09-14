@@ -47,9 +47,13 @@ Feature Requests 👉 <a href="https://github.com/tatthien/flat-preloader/issues
 
 == Changelog ==
 
+= 1.11.0 =
+
+* Minor updates to support pro version. There are no new features for bug fixes.
+
 = 1.10.0 =
 
-- Feat: Allow multiple post ID for custom display
+* Feat: Allow multiple post ID for custom display
 
 = 1.9.0 = 
 
