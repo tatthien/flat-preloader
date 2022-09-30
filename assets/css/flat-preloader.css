@@ -92,3 +92,33 @@ input[type="submit"] {
 .mb-4 {
   margin-bottom: 1rem;
 }
+
+.flat-preloader-ext-item a {
+  display: flex;
+  text-decoration: none;
+}
+
+.flat-preloader-ext-item img {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.flat-preloader-ext-item div {
+  margin-left: 0.5rem;
+}
+
+.flat-preloader-ext-item h4 {
+  margin: 0;
+}
+
+.flat-preloader-ext-item p {
+  color: #646970;
+}
+
+
+
+
+
+
+

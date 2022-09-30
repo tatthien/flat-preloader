@@ -303,6 +303,22 @@ function flat_preloader_settings_page() {
 					</ul>
 				</div>
 			</div>
+			<div class="postbox hide-on-pro">
+				<div class="postbox-header">
+					<h2 class="hndle"><?php esc_html_e( 'Other plugins', 'flat-preloader' ); ?></h2>
+				</div>
+                <div class="inside">
+                    <div class="flat-preloader-ext-item">
+                        <a href="https://thisisthien.gumroad.com/l/wp-block-mindmap" target="_blank">
+                            <img src="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/wp-block-mindmap-200.png'; ?>"alt="WP Block Mindmap logo">
+                            <div>
+                                <h4>WP Block Mindmap</h4>
+                                <p>From markdown content to interactive mindmaps</p>
+                            </div>
+                        </a>
+                    </div>
+				</div>
+			</div>
 			<?php echo do_action( 'flat_preloader_after_aside', $settings ); ?>
 		</aside>
 	</div>
