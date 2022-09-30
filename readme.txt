@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/tatthien
 Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 4.6
 Tested up to: 6.0
-Stable tag: 1.11.0
+Stable tag: 1.11.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,9 +47,13 @@ Feature Requests 👉 <a href="https://github.com/tatthien/flat-preloader/issues
 
 == Changelog ==
 
+= 1.11.1 =
+
+* Introduce new plugin: WP Block Mindmap. There are no new features or bug fixes.
+
 = 1.11.0 =
 
-* Minor updates to support pro version. There are no new features for bug fixes.
+* Minor updates to support pro version. There are no new features or bug fixes.
 
 = 1.10.0 =
 
