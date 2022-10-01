@@ -21,6 +21,7 @@ define( 'FLAT_PRELOADER_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FLAT_PRELOADER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'FLAT_PRELOADER_VERSION', '1.11.1' );
 
+require_once dirname( __FILE__ ) . '/includes/utils.php';
 require_once dirname( __FILE__ ) . '/flat-preloader-settings.php';
 
 /**
@@ -36,8 +37,9 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
  * Add scripts and styles for front page
  */
 function flat_preloader_add_public_scripts() {
-	$settings = get_option( '_flat_preloader' );
-	$display  = get_option( 'preloader-display' );
+	$settings                 = get_option( '_flat_preloader' );
+	$display                  = get_option( 'preloader-display' );
+	$show_preloader_instantly = flat_preloader_get_value( $settings['show_preloader_instantly'] );
 
 	wp_enqueue_style( 'flat-preloader', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
 	wp_enqueue_script( 'flat-preloader-js', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
@@ -45,8 +47,8 @@ function flat_preloader_add_public_scripts() {
 		'flat-preloader-js',
 		'flatPreloader',
 		array(
-			'delayTime'              => $settings['delay_time'] ? $settings['delay_time'] : 1000,
-			'showPreloaderInstantly' => $settings['show_preloader_instantly'] === '1' && $display === 'all' ? true : false,
+			'delayTime'              => flat_preloader_get_value( $settings['delay_time'], 1000 ),
+			'showPreloaderInstantly' => $show_preloader_instantly === '1' && $display === 'all' ? true : false,
 			'host'                   => $_SERVER['HTTP_HOST'],
 			'ignores'                => array(
 				'^https?:\/\/[^\/]+' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
@@ -55,7 +57,7 @@ function flat_preloader_add_public_scripts() {
 				preg_quote( wp_parse_url( content_url(), PHP_URL_PATH ), '/' ),
 				'.*\?.+',
 			),
-			'display' => $display,
+			'display'                => $display,
 		)
 	);
 }
@@ -74,15 +76,15 @@ function flat_preloader_output() {
 		$style = 'flat/flat_8.gif';
 	}
 
-	$display  = get_option( 'preloader-display' );
-	$settings = get_option( '_flat_preloader' );
-
-	$image_url = $settings['custom_image_url'] ? $settings['custom_image_url'] : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/img/' . $style;
-	$text      = $settings['text_under_icon'] ? $settings['text_under_icon'] : '';
-	$alt       = $settings['alt'] ? esc_attr( $settings['alt'] ) : '';
-	$post_id   = $settings['post_id'] ? esc_attr( $settings['post_id'] ) : '';
-
-	$overlay_class = $settings['custom_image_url'] ? 'fpo-custom' : 'fpo-default';
+	$display              = get_option( 'preloader-display' );
+	$settings             = get_option( '_flat_preloader' );
+	$custom_image_url     = flat_preloader_get_value( $settings['custom_image_url'], '' );
+	$has_custom_image_url = ! empty( $custom_image_url );
+	$image_url            = $has_custom_image_url ? $custom_image_url : untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/img/' . $style;
+	$text                 = isset( $settings['text_under_icon'] ) ? $settings['text_under_icon'] : '';
+	$alt                  = esc_attr( flat_preloader_get_value( $settings['alt'] ), '' );
+	$post_id              = esc_attr( flat_preloader_get_value( $settings['post_id'] ) );
+	$overlay_class        = $has_custom_image_url ? 'fpo-custom' : 'fpo-default';
 
 	ob_start();
 	?>
@@ -96,11 +98,14 @@ function flat_preloader_output() {
 	</div>
 	<?php
 	$content = ob_get_clean();
-	
-	$ids = explode(',', $post_id);
-	$ids = array_map(function ($id) {
-		return (int) trim($id);
-	}, $ids);
+
+	$ids = explode( ',', $post_id );
+	$ids = array_map(
+		function ( $id) {
+			return (int) trim( $id );
+		},
+		$ids
+	);
 
 	if ( $display === 'home' && ( is_home() || is_front_page() ) ) {
 		echo $content;
