@@ -304,7 +304,7 @@ function flat_preloader_settings_page() {
 					</ul>
 				</div>
 			</div>
-			<div class="postbox hide-on-pro">
+			<div class="postbox">
 				<div class="postbox-header">
 					<h2 class="hndle"><?php esc_html_e( 'Other plugins', 'flat-preloader' ); ?></h2>
 				</div>
