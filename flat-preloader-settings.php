@@ -104,7 +104,7 @@ function flat_preloader_settings_page() {
 
 	$style    = get_option( 'preloader-style' );
 	$display  = get_option( 'preloader-display' );
-	$settings = get_option( '_flat_preloader' );
+	$settings = flat_preloader_get_settings();
 	?>
 	<h1 style="padding-top: 1.5rem"><?php esc_html_e( 'Flat Preloader Settings', 'flat-preloader' ); ?></h1>
 	<div class="wp-preloading-wrapper metabox-holder">
@@ -168,7 +168,7 @@ function flat_preloader_settings_page() {
 										id="post_id"
 										name="preloader[post_id]"
 										class="widefat"
-										value="<?php echo isset( $settings['post_id'] ) ? esc_attr( $settings['post_id'] ) : ''; ?>" 
+										value="<?php echo $settings['post_id']; ?>" 
 									>
 									<p class="description"><?php esc_html_e( 'Enter the ID of the post where you want to show loading icon. Multiple ID separated by comma.', 'flat-preloader' ); ?></p>
 									<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
@@ -188,7 +188,7 @@ function flat_preloader_settings_page() {
 										name="preloader[custom_image_url]" 
 										class="widefat"
 										placeholder="https://" 
-										value="<?php echo isset( $settings['custom_image_url'] ) ? esc_url( $settings['custom_image_url'] ) : ''; ?>"
+										value="<?php echo $settings['custom_image_url']; ?>"
 									>
 									<p class="description"><?php esc_html_e( 'If you don\'t like the icons above, you can add your own by entering the URL here. This value will override the selected icon above.', 'flat-preloader' ); ?></p>
 								</td>
@@ -202,7 +202,7 @@ function flat_preloader_settings_page() {
 										name="preloader[text_under_icon]"
 										class="widefat" 
 										placeholder="<?php esc_html_e( 'E.g: Loading...', 'flat-preloader' ); ?>" 
-										value="<?php echo isset( $settings['text_under_icon'] ) ? esc_attr( $settings['text_under_icon'] ) : ''; ?>"
+										value="<?php echo $settings['text_under_icon']; ?>"
 									>
 
 									<?php echo do_action( 'flat_preloader_after_text_under_icon', $settings ); ?>
@@ -217,7 +217,7 @@ function flat_preloader_settings_page() {
 										name="preloader[delay_time]" 
 										class="widefat" 
 										placeholder="Default is 1000 ms (1 second)" 
-										value="<?php echo isset( $settings['delay_time'] ) ? esc_attr( $settings['delay_time'] ) : ''; ?>"
+										value="<?php echo esc_attr( $settings['delay_time'] ); ?>"
 									>
 									<p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
 								</td>
@@ -231,7 +231,7 @@ function flat_preloader_settings_page() {
 										name="preloader[alt]" 
 										class="widefat" 
 										placeholder="Eg: Loading icon" 
-										value="<?php echo isset( $settings['alt'] ) ? esc_attr( $settings['alt'] ) : ''; ?>"
+										value="<?php echo esc_attr( $settings['alt'] ); ?>"
 									>
 									<p class="description">
 										<?php esc_html_e( 'Add alt text for icon to improve SEO score.', 'flat-preloader' ); ?>
@@ -248,8 +248,7 @@ function flat_preloader_settings_page() {
 											id="show_preloader_instantly"
 											name="preloader[show_preloader_instantly]" 
 											type="checkbox" 
-											<?php $show_preloader_instantly = flat_preloader_get_value( $settings['show_preloader_instantly'] ); ?>
-											<?php echo checked( $show_preloader_instantly, '1' ); ?> 
+											<?php echo checked( $settings['show_preloader_instantly'], '1' ); ?> 
 											value="1"
 										>
 										<span><?php esc_html_e( 'Show preloader immediately when a link is clicked.', 'flat-preloader' ); ?></span>
