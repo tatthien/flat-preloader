@@ -2,7 +2,7 @@ const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 const overlayEl = document.getElementById('flat-preloader-overlay')
 const showPreloaderInstantly = flatPreloader.showPreloaderInstantly === '1' ? true : false
 
-window.addEventListener('DOMContentLoaded', async function () {
+window.addEventListener('load', async function () {
   if (!overlayEl) {
     return
   }
