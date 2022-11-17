@@ -47,6 +47,11 @@ Feature Requests 👉 <a href="https://github.com/tatthien/flat-preloader/issues
 
 == Changelog ==
 
+= 1.12.0 =
+
+Test: latest WordPress version compatible
+Fix: loading screen is not hidden when clicking on the browser's back button (https://wordpress.org/support/topic/preloader-does-not-disappear-after-browser-back-navigation/)
+
 = 1.11.3 = 
 
 Fix: loading screen is not hidden on Divi Builder
