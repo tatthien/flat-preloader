@@ -47,22 +47,26 @@ Feature Requests 👉 <a href="https://github.com/tatthien/flat-preloader/issues
 
 == Changelog ==
 
+= 1.14.0 =
+
+* Feat: in the previous versions if you click on `/path-to-somewhere`, it won't show the loader immediately. This update allows the loaders to show up right after the click.
+
 = 1.13.0 =
 
-Fix: prevent constant variables conflict with other code.
+* Fix: prevent constant variables conflict with other code.
 
 = 1.12.0 =
 
-Test: latest WordPress version compatible
-Fix: loading screen is not hidden when clicking on the browser's back button (https://wordpress.org/support/topic/preloader-does-not-disappear-after-browser-back-navigation/)
+* Test: latest WordPress version compatible
+* Fix: loading screen is not hidden when clicking on the browser's back button (https://wordpress.org/support/topic/preloader-does-not-disappear-after-browser-back-navigation/)
 
 = 1.11.3 = 
 
-Fix: loading screen is not hidden on Divi Builder
+* Fix: loading screen is not hidden on Divi Builder
 
 = 1.11.2 = 
 
-Fix: undefined keys when install Flat Preloader for the first time.
+* Fix: undefined keys when install Flat Preloader for the first time.
 
 = 1.11.1 =
 
