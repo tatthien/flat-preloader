@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/tatthien
 Tags: wordpress, preloader, flat, gif, icon, loading
 Requires at least: 4.6
 Tested up to: 6.1.1
-Stable tag: 1.14.0
+Stable tag: 1.14.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,10 @@ Feature Requests 👉 <a href="https://github.com/tatthien/flat-preloader/issues
 8. Pro - Background image + custom gif
 
 == Changelog ==
+
+= 1.14.1 =
+
+* Fix: do not show loader immediately when click on link with hashtag
 
 = 1.14.0 =
 
