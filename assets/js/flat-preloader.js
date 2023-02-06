@@ -44,7 +44,7 @@ function flatPreloaderInit() {
   })
 
   function isIgnored(url) {
-    if (!url.includes(flatPreloader.host)) {
+    if (url.startsWith('http') && !url.includes(flatPreloader.host)) {
       return true
     }
     let ignore = false

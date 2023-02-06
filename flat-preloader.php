@@ -54,8 +54,9 @@ function flat_preloader_add_public_scripts() {
 				'^' . preg_quote( admin_url(), '/' ),
 				'^' . preg_quote( site_url(), '/' ) . '[^?#]+\.php',
 				preg_quote( wp_parse_url( content_url(), PHP_URL_PATH ), '/' ),
-				'.*\?.+',
-			),
+                '.*\?.+',
+                '^' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
+            ),
 			'display'                => $display,
 		)
 	);
