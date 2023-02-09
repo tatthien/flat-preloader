@@ -57,6 +57,8 @@ function flat_preloader_add_public_scripts() {
                 '.*\?.+',
                 '^' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
                 '^#.*',
+                '^mailto:.*',
+                '^tel:.*',
             ),
 			'display'                => $display,
 		)
