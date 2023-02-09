@@ -29,6 +29,10 @@ function flatPreloaderInit() {
     // Show the preloader immediately
     if (showPreloaderInstantly) {
       document.querySelectorAll('a').forEach(link => {
+        if (link.getAttribute('data-fp-ignore') === 'true') {
+          return
+        }
+
         link.addEventListener('click', e => {
           let href = link.getAttribute('href')
           if (isIgnored(href)) {
