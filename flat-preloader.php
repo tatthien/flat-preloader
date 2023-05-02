@@ -38,18 +38,8 @@ add_action( 'admin_enqueue_scripts', 'flat_preloader_add_admin_scripts' );
  */
 function flat_preloader_add_public_scripts() {
 	$settings = flat_preloader_get_settings();
-	$display  = get_option( 'preloader-display' );
-
-	wp_enqueue_style( 'flat-preloader', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
-	wp_enqueue_script( 'flat-preloader-js', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
-	wp_localize_script(
-		'flat-preloader-js',
-		'flatPreloader',
-		array(
-			'delayTime'              => $settings['delay_time'] ? $settings['delay_time'] : 1000,
-			'showPreloaderInstantly' => $settings['show_preloader_instantly'] === '1' && $display === 'all' ? true : false,
-			'host'                   => $_SERVER['HTTP_HOST'],
-			'ignores'                => array(
+  $display  = get_option( 'preloader-display' );
+  $ignoreLinks = apply_filters('flat_preloader_ignore_links', array(
 				'^https?:\/\/[^\/]+' . preg_quote( wp_unslash( $_SERVER['REQUEST_URI'] ), '/' ) . '(#.*)?$',
 				'^' . preg_quote( admin_url(), '/' ),
 				'^' . preg_quote( site_url(), '/' ) . '[^?#]+\.php',
@@ -60,6 +50,19 @@ function flat_preloader_add_public_scripts() {
                 '^mailto:.*',
                 '^tel:.*',
             ),
+  );
+  $showPreloaderInstantly = apply_filters('flat_preloader_show_preloader_instantly', $settings['show_preloader_instantly'] === '1' && $display === 'all' ? true : false);
+
+	wp_enqueue_style( 'flat-preloader', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/css/flat-preloader-public.css', array(), FLAT_PRELOADER_VERSION, 'all' );
+	wp_enqueue_script( 'flat-preloader-js', untrailingslashit( FLAT_PRELOADER_PLUGIN_URL ) . '/assets/js/flat-preloader.js', array( 'jquery' ), FLAT_PRELOADER_VERSION, true );
+	wp_localize_script(
+		'flat-preloader-js',
+		'flatPreloader',
+		array(
+			'delayTime'              => $settings['delay_time'] ? $settings['delay_time'] : 1000,
+			'showPreloaderInstantly' => $showPreloaderInstantly,
+			'host'                   => $_SERVER['HTTP_HOST'],
+			'ignores'                => $ignoreLinks,
 			'display'                => $display,
 		)
 	);
@@ -157,3 +160,4 @@ function flat_preloader_plugin_action_links( $links ) {
 }
 
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'flat_preloader_plugin_action_links', 100 );
+
