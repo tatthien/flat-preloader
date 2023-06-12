@@ -73,31 +73,31 @@ function flat_preloader_settings_page() {
 		array(
 			array(
 				'key_name'   => 'color-style',
-				'title_name' => 'Color',
+				'title_name' => __( 'Color', 'flat-preloader' ),
 			),
 			array(
 				'key_name'   => 'ios-glyph',
-				'title_name' => 'iOS Glyph',
+				'title_name' => __( 'iOS Glyph', 'flat-preloader' ),
 			),
 			array(
 				'key_name'   => 'windows-10',
-				'title_name' => 'Windows 10',
+				'title_name' => __( 'Windows 10', 'flat-preloader' ),
 			),
 			array(
 				'key_name'   => 'office-style',
-				'title_name' => 'Office',
+				'title_name' => __( 'Office', 'flat-preloader' ),
 			),
 			array(
 				'key_name'   => 'modern-flat',
-				'title_name' => 'Modern Flat',
+				'title_name' => __( 'Modern Flat', 'flat-preloader' ),
 			),
 			array(
 				'key_name'   => 'flat',
-				'title_name' => 'Flat',
+				'title_name' => __( 'Flat', 'flat-preloader' ),
 			),
 			array(
 				'key_name'   => 'emoji',
-				'title_name' => 'Emoji',
+				'title_name' => __( 'Emoji', 'flat-preloader' ),
 			),
 		)
 	);
@@ -174,7 +174,7 @@ function flat_preloader_settings_page() {
 									<p class="description"><?php esc_html_e( 'How to get post ID', 'flat-preloader' ); ?></p>
 									<p>
 										<a href="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" target="_blank">
-											<img src="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" style="max-width: 100%; height: auto;" alt="How to get post ID?">
+											<img src="<?php echo FLAT_PRELOADER_PLUGIN_URL . 'admin/img/how-to-get-post-id.png'; ?>" style="max-width: 100%; height: auto;" alt="<?php esc_attr_e( 'How to get post ID?', 'flat-preloader' ); ?>">
 										</a>
 									</p>
 								</td>
@@ -216,10 +216,10 @@ function flat_preloader_settings_page() {
 										id="delay_time" 
 										name="preloader[delay_time]" 
 										class="widefat" 
-										placeholder="Default is 1000 ms (1 second)" 
+										placeholder="<?php esc_attr_e( 'Default is 1000 ms (1 second)', 'flat-preloader' ); ?>" 
 										value="<?php echo esc_attr( $settings['delay_time'] ); ?>"
 									>
-									<p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time. ', 'flat-preloader' ); ?></p>
+									<p class="description"><?php esc_html_e( 'When your site is fully loaded, the preloader will fade out after the delay time.', 'flat-preloader' ); ?></p>
 								</td>
 							</tr>
 							<tr>
@@ -230,7 +230,7 @@ function flat_preloader_settings_page() {
 										id="alt"
 										name="preloader[alt]" 
 										class="widefat" 
-										placeholder="Eg: Loading icon" 
+										placeholder="<?php esc_attr_e( 'Eg: Loading icon', 'flat-preloader' ); ?>" 
 										value="<?php echo esc_attr( $settings['alt'] ); ?>"
 									>
 									<p class="description">
@@ -264,10 +264,10 @@ function flat_preloader_settings_page() {
 
 				<?php echo wp_nonce_field( 'flat_preloader_option_saving' ); ?>
 
-				<input type="submit" id="flat-preloader-submit-form-button" class="button-primary" name="save-option" value="Save Changes">
+				<input type="submit" id="flat-preloader-submit-form-button" class="button-primary" name="save-option" value="<?php esc_html_e( 'Save Changes', 'flat-preloader' ); ?>">
 
 				<div>
-					<p><?php esc_html_e( 'Animated icons by', 'flat-preloader' ); ?>: <a href="https://icons8.com">icon8</a>, <a href="https://pixelbuddha.net/">PixelBuddha</a></p>
+					<p><?php printf(esc_html__( 'Animated icons by: %1$sicon8%3$s, %2$sPixelBuddha%3$s', 'flat-preloader' ),'<a href="https://icons8.com" target="_blank">','<a href="https://pixelbuddha.net/" target="_blank">','</a>'); ?></p>
 				</div>
 			</form>
 			</div>
